@@ -1,51 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>ATF Toronto Flatland Association</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <meta name="description" content="ATF Toronto Flatland — Who we are, what we do, riders, video, and contact." />
+  <link rel="stylesheet" href="assets/style.css" />
+  <link rel="preload" href="assets/style.css" as="style" />
+  <meta property="og:title" content="ATF Toronto Flatland Association" />
+  <meta property="og:description" content="Flatland BMX in Toronto, Canada" />
+  <meta property="og:type" content="website" />
 </head>
 <body>
-
-  <header>
-    <h1>ATF Toronto Flatland Association</h1>
-    <p>Flatland BMX in Toronto, Canada</p>
+  <header class="hero">
+    <div class="wrap">
+      <h1>ATF Toronto Flatland Association</h1>
+      <p class="tag">Flatland BMX in Toronto, Canada</p>
+      <nav class="nav">
+        <a href="#about">Who We Are</a>
+        <a href="#video">Video</a>
+        <a href="#riders">Riders</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a class="cta" href="#video">Watch the clip ↓</a>
+    </div>
+    <div class="fade"></div>
   </header>
 
-  <main>
-    <section>
+  <main class="wrap">
+    <section id="about" class="block">
       <h2>Who We Are</h2>
-      <p>We are a community of BMX flatland riders in Toronto. Our goal is to connect riders, organize meetups, and promote flatland culture in Canada.</p>
+      <p>We are a community of BMX flatland riders based in Toronto. We connect riders, run meetups and jams, and promote flatland culture across Canada.</p>
     </section>
 
-    <section>
+    <section class="block">
       <h2>What We Do</h2>
-      <p>We host training sessions, local jams, and public demonstrations. We also support new riders by sharing knowledge, resources, and inspiration.</p>
+      <ul class="bullets">
+        <li>Open practice sessions & rider mentoring</li>
+        <li>Local jams, demos & community events</li>
+        <li>Beginner support: tips, setup, and progression</li>
+      </ul>
     </section>
 
-    <section class="video">
-      <h2>Watch Our Riders</h2>
-      <!-- Replace VIDEO_ID with your actual YouTube ID -->
-      <iframe width="560" height="315"
-              src="https://www.youtube.com/watch?v=o8P-oUWC4Nw"
-              title="YouTube video player"
-              frameborder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowfullscreen>
-      </iframe>
+    <section id="video" class="block">
+      <h2>Featured Video</h2>
+      <div class="video-wrapper">
+        <!-- Privacy-enhanced YouTube embed -->
+        <iframe
+          src="https://www.youtube-nocookie.com/embed/o8P-oUWC4Nw"
+          title="ATF Toronto Flatland — Featured Video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
     </section>
 
-    <section>
+    <section id="riders" class="block">
+      <h2>Riders</h2>
+      <div class="grid">
+        <!-- Rider 1 -->
+        <article class="card">
+          <img src="assets/riders/rider1.jpg" alt="Rider 1 placeholder" />
+          <h3>Rider Name #1</h3>
+          <p>Signature moves, jam highlights, or a short 1–2 line bio. Add Instagram link if you want.</p>
+        </article>
+        <!-- Rider 2 -->
+        <article class="card">
+          <img src="assets/riders/rider2.jpg" alt="Rider 2 placeholder" />
+          <h3>Rider Name #2</h3>
+          <p>Short intro text. Example: years riding, style (tech/flow), favorite spot.</p>
+        </article>
+        <!-- Rider 3 -->
+        <article class="card">
+          <img src="assets/riders/rider3.jpg" alt="Rider 3 placeholder" />
+          <h3>Rider Name #3</h3>
+          <p>One or two sentences about the rider. Keep it punchy.</p>
+        </article>
+        <!-- Rider 4 -->
+        <article class="card">
+          <img src="assets/riders/rider4.jpg" alt="Rider 4 placeholder" />
+          <h3>Rider Name #4</h3>
+          <p>Achievements, comps, or what they love about flatland.</p>
+        </article>
+        <!-- Rider 5 -->
+        <article class="card">
+          <img src="assets/riders/rider5.jpg" alt="Rider 5 placeholder" />
+          <h3>Rider Name #5</h3>
+          <p>Quick bio line. Add social link below if needed.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="block contact">
       <h2>Contact</h2>
+      <p>Want to ride with us, collab on an event, or learn flatland?</p>
       <p>Email: <a href="mailto:contact@atf-toronto.org">contact@atf-toronto.org</a></p>
-      <p>Follow us on <a href="https://instagram.com/" target="_blank">Instagram</a></p>
+      <p>Instagram: <a href="https://instagram.com/" target="_blank" rel="noopener">Follow us</a></p>
     </section>
   </main>
 
-  <footer>
-    <p>&copy; 2025 ATF Toronto Flatland Association</p>
+  <footer class="foot">
+    <div class="wrap">
+      <p>&copy; 2025 ATF Toronto Flatland Association</p>
+    </div>
   </footer>
-
 </body>
 </html>
