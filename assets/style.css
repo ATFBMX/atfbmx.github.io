@@ -40,10 +40,11 @@ p,li{color:var(--muted)}
   box-shadow:var(--shadow)
 }
 .logo {
-  width: 60px;        /* adjust size as needed */
+  display: block;
+  margin: 0 auto 1rem;   /* centers horizontally + space below */
+  width: 160px;          /* adjust size */
   height: auto;
-  margin-bottom: 1rem;
-  border-radius: 50%;  /* makes it circular if you like */
+  border-radius: 50%;    /* circle look, remove if you want square */
   box-shadow: 0 4px 14px rgba(0,0,0,.4);
 }
 
