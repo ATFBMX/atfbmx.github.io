@@ -37,7 +37,7 @@ p,li{color:var(--muted)}
 .hero::before{
   content:"";
   position:absolute; inset:0;
-  background:url("assets/atflogo.png") no-repeat center center;
+  background:url("https://atfbmx.github.io/assets/atflogo.png") no-repeat center center;
   background-size:min(80%, 520px);   /* responsive size */
   opacity:.08;                       /* faint so text stays readable */
   z-index:0;
