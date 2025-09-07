@@ -27,19 +27,31 @@ p,li{color:var(--muted)}
 .block{margin:72px 0}
 
 /* ===== Hero / header ===== */
-.hero{
-  background:linear-gradient(180deg,#0f141f 0%, #0b0f16 100%);
-  padding:80px 0 40px;
-  border-bottom:1px solid var(--border);
+/* Hero background logo watermark */
+.hero {
+  position: relative;
+  background: linear-gradient(180deg,#0f141f 0%, #0b0f16 100%);
+  padding: 80px 0 60px;
+  border-bottom: 1px solid var(--border);
+  overflow: hidden; /* ensure background doesn't spill */
 }
-.hero .tag{color:#cfe7ff;opacity:.9;margin:.25rem 0 1rem}
-.nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin:8px 0 10px}
-.cta{
-  display:inline-block;margin-top:10px;padding:10px 16px;
-  background:var(--brand);color:#042232;font-weight:700;border-radius:999px;
-  box-shadow:var(--shadow)
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("assets/atflogo.png") no-repeat center center;
+  background-size: min(80%, 500px); /* responsive scaling */
+  opacity: 0.08; /* adjust lighter/darker watermark */
+  z-index: 0;    /* behind text */
 }
-.logo {
+
+.hero .wrap {
+  position: relative;
+  z-index: 1; /* keeps text above logo */
+  text-align: center;
+}
+go {
   display: block;
   margin: 0 auto 1rem;   /* centers horizontally + space below */
   width: 160px;          /* adjust size */
