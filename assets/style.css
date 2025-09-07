@@ -6,7 +6,7 @@
   --border:#222b3b;
   --ink:#eaf0f7;
   --muted:#aebbd1;
-  --brand:#4ecbff;
+  --brand:#fb4c2f;               /* your color */
   --radius:16px;
   --shadow:0 10px 30px rgba(0,0,0,.28);
   --max:1100px;
@@ -26,56 +26,46 @@ p,li{color:var(--muted)}
 .wrap{max-width:var(--max);margin:0 auto;padding:0 20px}
 .block{margin:72px 0}
 
-/* ===== Hero / header ===== */
-/* Hero background logo watermark */
-.hero {
-  position: relative;
-  background: linear-gradient(180deg,#0f141f 0%, #0b0f16 100%);
-  padding: 80px 0 60px;
-  border-bottom: 1px solid var(--border);
-  overflow: hidden; /* ensure background doesn't spill */
+/* ===== Hero with watermark logo ===== */
+.hero{
+  position:relative;
+  background:linear-gradient(180deg,#0f141f 0%, #0b0f16 100%);
+  padding:80px 0 60px;
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+}
+.hero::before{
+  content:"";
+  position:absolute; inset:0;
+  background:url("assets/atflogo.png") no-repeat center center;
+  background-size:min(80%, 520px);   /* responsive size */
+  opacity:.08;                       /* faint so text stays readable */
+  z-index:0;
+}
+.hero .wrap{ position:relative; z-index:1; text-align:center; }
+.nav{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin:8px 0 10px}
+.cta{
+  display:inline-block;margin-top:10px;padding:10px 16px;
+  background:var(--brand); color:#fff; font-weight:700; border-radius:999px;
+  box-shadow:var(--shadow);
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: url("assets/atflogo.png") no-repeat center center;
-  background-size: min(80%, 500px); /* responsive scaling */
-  opacity: 0.08; /* adjust lighter/darker watermark */
-  z-index: 0;    /* behind text */
-}
-
-.hero .wrap {
-  position: relative;
-  z-index: 1; /* keeps text above logo */
-  text-align: center;
-}
-go {
-  display: block;
-  margin: 0 auto 1rem;   /* centers horizontally + space below */
-  width: 160px;          /* adjust size */
-  height: auto;
-  border-radius: 50%;    /* circle look, remove if you want square */
-  box-shadow: 0 4px 14px rgba(0,0,0,.4);
-}
-
-/* ===== Sections ===== */
+/* ===== Lists ===== */
 .bullets{padding-left:18px;margin:0}
 .bullets li{margin:.25rem 0}
 
 /* ===== Video (responsive) ===== */
 .video-wrapper{
-  position:relative;width:100%;aspect-ratio:16/9;
-  background:#000;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+  position:relative; width:100%; aspect-ratio:16/9;
+  background:#000; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);
 }
 .video-wrapper iframe{
-  position:absolute;inset:0;width:100%;height:100%;border:0;
+  position:absolute; inset:0; width:100%; height:100%; border:0;
 }
 
 /* ===== Riders grid (responsive) ===== */
 .grid{
-  display:grid;gap:18px;
+  display:grid; gap:18px;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
 }
 .card{
@@ -86,17 +76,17 @@ go {
   box-shadow:var(--shadow);
   transition:transform .12s ease, box-shadow .12s ease;
 }
-.card:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(0,0,0,.32)}
+.card:hover{transform:translateY(-2px); box-shadow:0 14px 36px rgba(0,0,0,.32)}
 .card img{
-  width:100%;height:220px;object-fit:cover;border-radius:12px;background:#0a0a0a;margin:0 0 10px;
+  width:100%; height:220px; object-fit:cover; border-radius:12px; background:#0a0a0a; margin:0 0 10px;
 }
-.card h3{font-size:1.05rem;margin:.25rem 0 .35rem}
+.card h3{font-size:1.05rem; margin:.25rem 0 .35rem}
 .card p{font-size:.95rem}
 
 /* ===== Contact & footer ===== */
 .contact{
   background:var(--panel-2);
   border:1px solid var(--border);
-  padding:26px;border-radius:var(--radius);box-shadow:var(--shadow);
+  padding:26px; border-radius:var(--radius); box-shadow:var(--shadow);
 }
-.foot{border-top:1px solid var(--border);margin-top:56px;padding:22px 0;color:#98a8c3}
+.foot{border-top:1px solid var(--border); margin-top:56px; padding:22px 0; color:#98a8c3}
