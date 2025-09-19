@@ -3,23 +3,25 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ATF Toronto Flatland Association</title>
-  <meta name="description" content="ATF Toronto Flatland — Who we are, what we do, riders, video, and contact." />
-  <link rel="stylesheet" href="assets/style.css" />
-  <link rel="preload" href="assets/style.css" as="style" />
-  <meta property="og:title" content="ATF Toronto Flatland Association" />
+  <title>Association of Toronto Flatlanders (ATF)</title>
+  <meta name="description" content="ATF — Toronto Flatland BMX community: riders, videos, gallery, contact." />
+  <meta property="og:title" content="Association of Toronto Flatlanders (ATF)" />
   <meta property="og:description" content="Flatland BMX in Toronto, Canada" />
   <meta property="og:type" content="website" />
+  <link rel="preload" href="assets/style.css" as="style" />
+  <link rel="stylesheet" href="assets/style.css" />
 </head>
 <body>
 <header class="hero">
   <div class="wrap">
-    <h1>ATF Toronto Flatland Association</h1>
+    <img src="assets/logo.png" alt="ATF logo" class="logo" />
+    <h1>Association of Toronto Flatlanders</h1>
     <p class="tag">Flatland BMX in Toronto, Canada</p>
-    <nav class="nav">
+    <nav class="nav" aria-label="Primary">
       <a href="#about">Who We Are</a>
       <a href="#video">Video</a>
       <a href="#riders">Riders</a>
+      <a href="#gallery">Gallery</a>
       <a href="#contact">Contact</a>
     </nav>
     <a class="cta" href="#video">Watch the clip ↓</a>
@@ -29,7 +31,7 @@
 <main class="wrap">
   <section id="about" class="block">
     <h2>Who We Are</h2>
-    <p>We are a community of BMX flatland riders based in Toronto. We connect riders, run meetups and jams, and promote flatland culture across Canada.</p>
+    <p>We’re a community of Toronto flatland riders. We ride, mentor, run jams, and keep the scene moving.</p>
   </section>
 
   <section class="block">
@@ -54,40 +56,16 @@
     </div>
   </section>
 
+  <!-- Riders: 12 placeholders (name, bio, link) -->
   <section id="riders" class="block">
     <h2>Riders</h2>
-    <div class="grid">
-      <article class="card">
-        <img src="assets/riders/rider1.jpg" alt="Rider 1" />
-        <h3>Tall Paul</h3>
-        <p>Signature moves, jam highlights, or a short 1–2 line bio. Add Instagram link if you want.</p>
-      </article>
-      <article class="card">
-        <img src="assets/riders/rider2.jpg" alt="Rider 2" />
-        <h3>Bert</h3>
-        <p>Short intro text. Example: years riding, style (tech/flow), favorite spot.</p>
-      </article>
-      <article class="card">
-        <img src="assets/riders/rider3.jpg" alt="Rider 3" />
-        <h3>Brandon</h3>
-        <p>One or two sentences about the rider. Keep it punchy.</p>
-      </article>
-      <article class="card">
-        <img src="assets/riders/rider4.jpg" alt="Rider 4" />
-        <h3>Juan</h3>
-        <p>Achievements, comps, or what they love about flatland.</p>
-      </article>
-      <article class="card">
-        <img src="assets/riders/rider5.jpg" alt="Rider 5" />
-        <h3>Colin</h3>
-        <p>Quick bio line. Add social link below if needed.</p>
-      </article>
-      <article class="card">
-        <img src="assets/riders/rider4.jpg" alt="Rider 4" />
-        <h3>Jess</h3>
-        <p>Achievements, comps, or what they love about flatland.</p>
-      </article>
-    </div>
+    <div id="riderGrid" class="grid" aria-live="polite"></div>
+  </section>
+
+  <!-- Gallery with lazy thumbnails that open full-res in a lightbox -->
+  <section id="gallery" class="block">
+    <h2>Gallery</h2>
+    <div class="thumbs" id="galleryThumbs"></div>
   </section>
 
   <section id="contact" class="block contact">
@@ -100,8 +78,95 @@
 
 <footer class="foot">
   <div class="wrap">
-    <p>&copy; 2025 ATF Toronto Flatland Association</p>
+    <p>&copy; 2025 Association of Toronto Flatlanders</p>
   </div>
 </footer>
+
+<!-- Lightbox modal -->
+<div class="lightbox" id="lightbox" aria-hidden="true" aria-label="Image viewer" role="dialog">
+  <button class="close" id="lbClose" aria-label="Close (Esc)">Close ✕</button>
+  <figure>
+    <img id="lbImg" alt="Full-size gallery image" />
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+</div>
+
+<script>
+  // ====== Riders data (12 placeholders) ======
+  // Each rider: { name, bio, linkText, linkHref, img }
+  const riders = [
+    { name: 'Tall Paul', bio: 'Tech links, turbine spins, scene builder since day one.', linkText: 'Instagram', linkHref: '#', img: 'assets/riders/rider1.jpg' },
+    { name: 'Bert', bio: 'Flow style, frontyard classics. Riding since 2004.', linkText: 'Profile', linkHref: '#', img: 'assets/riders/rider2.jpg' },
+    { name: 'Brandon', bio: 'Fast combos, dialed whiplash control.', linkText: 'Link', linkHref: '#', img: 'assets/riders/rider3.jpg' },
+    { name: 'Juan', bio: 'Explosive switches, loves outdoor autumn sessions.', linkText: 'Link', linkHref: '#', img: 'assets/riders/rider4.jpg' },
+    { name: 'Colin', bio: 'Original lines, quiet killer at jams.', linkText: 'Insta', linkHref: '#', img: 'assets/riders/rider5.jpg' },
+    { name: 'Jess', bio: 'Smooth turbines, backwheel consistency.', linkText: 'Link', linkHref: '#', img: 'assets/riders/rider6.jpg' },
+    { name: 'Remy', bio: 'Flatland lifer. Community first.', linkText: 'Link', linkHref: '#', img: 'assets/riders/rider7.jpg' },
+    { name: 'Andre', bio: 'Backyard scientist, loves bike setup chats.', linkText: 'Link', linkHref: '#', img: 'assets/riders/rider8.jpg' },
+    { name: 'Steph', bio: 'Rollers for days. New lines every session.', linkText: 'Link', linkHref: '#', img: 'assets/riders/rider9.jpg' },
+    { name: 'Maya', bio: 'Creative switches and footwork. New to comps.', linkText: 'Link', linkHref: '#', img: 'assets/riders/rider10.jpg' },
+    { name: 'Zhang', bio: 'Signature decade pivots, late-night Union rides.', linkText: 'Link', linkHref: '#', img: 'assets/riders/rider11.jpg' },
+    { name: 'Ali', bio: 'Backwheel surgeon. Loves teaching beginners.', linkText: 'Link', linkHref: '#', img: 'assets/riders/rider12.jpg' }
+  ];
+
+  const riderGrid = document.getElementById('riderGrid');
+  const riderCard = (r) => `
+    <article class="card">
+      <img src="${r.img}" alt="${r.name}" loading="lazy" width="400" height="300"/>
+      <div class="pad">
+        <h3>${r.name}</h3>
+        <p>${r.bio}</p>
+        <a href="${r.linkHref}" target="_blank" rel="noopener">${r.linkText}</a>
+      </div>
+    </article>`;
+  riderGrid.innerHTML = riders.map(riderCard).join('');
+
+  // ====== Gallery data ======
+  // Use lightweight thumbnails and link to full-res for speed
+  const gallery = [
+    { thumb: 'assets/gallery/thumbs/atf_01_480.jpg', full: 'assets/gallery/full/atf_01.jpg', alt: 'Summer jam at the waterfront', caption: 'Summer jam — waterfront session' },
+    { thumb: 'assets/gallery/thumbs/atf_02_480.jpg', full: 'assets/gallery/full/atf_02.jpg', alt: 'Backwheel pivot at Union', caption: 'Backwheel pivot — Union' },
+    { thumb: 'assets/gallery/thumbs/atf_03_480.jpg', full: 'assets/gallery/full/atf_03.jpg', alt: 'Autumn flat spot', caption: 'Autumn spot — golden hour' },
+    { thumb: 'assets/gallery/thumbs/atf_04_480.jpg', full: 'assets/gallery/full/atf_04.jpg', alt: 'Turbine practice', caption: 'Turbine practice' },
+    { thumb: 'assets/gallery/thumbs/atf_05_480.jpg', full: 'assets/gallery/full/atf_05.jpg', alt: 'Night ride downtown', caption: 'Night ride — downtown' },
+    { thumb: 'assets/gallery/thumbs/atf_06_480.jpg', full: 'assets/gallery/full/atf_06.jpg', alt: 'Weekend meetup', caption: 'Weekend meetup' }
+  ];
+
+  const thumbs = document.getElementById('galleryThumbs');
+  const thumbTpl = (p) => `
+    <figure class="thumb">
+      <img src="${p.thumb}" alt="${p.alt}" loading="lazy" width="320" height="240" data-full="${p.full}" data-caption="${p.caption}" />
+      <figcaption>${p.caption}</figcaption>
+    </figure>`;
+  thumbs.innerHTML = gallery.map(thumbTpl).join('');
+
+  // ====== Lightbox logic ======
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lbImg');
+  const lbCap = document.getElementById('lbCap');
+  const lbClose = document.getElementById('lbClose');
+
+  const openLB = (src, caption) => {
+    lbImg.src = src;
+    lbCap.textContent = caption || '';
+    lb.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+    lbClose && lbClose.focus && lbClose.focus();
+  };
+  const closeLB = () => {
+    lb.setAttribute('aria-hidden','true');
+    lbImg.removeAttribute('src');
+    document.body.style.overflow='';
+  };
+
+  thumbs.addEventListener('click', (e) => {
+    const img = e.target.closest('img');
+    if(!img) return;
+    openLB(img.dataset.full, img.dataset.caption);
+  });
+  lbClose && lbClose.addEventListener('click', closeLB);
+  lb.addEventListener('click', (e)=>{ if(e.target === lb) closeLB(); });
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLB(); });
+</script>
 </body>
 </html>
