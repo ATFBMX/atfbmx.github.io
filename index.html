@@ -14,7 +14,7 @@
 <body>
 <header class="hero">
   <div class="wrap">
-    <img src="assets/logo.png" alt="ATF logo" class="logo" />
+    <img src="assets/logo.png" alt="ATF logo" class="logo" data-fallback />
     <h1>Association of Toronto Flatlanders</h1>
     <p class="tag">Flatland BMX in Toronto, Canada</p>
     <nav class="nav" aria-label="Primary">
@@ -56,13 +56,13 @@
     </div>
   </section>
 
-  <!-- Riders: 12 placeholders (name, bio, link) -->
+  <!-- Riders -->
   <section id="riders" class="block">
     <h2>Riders</h2>
     <div id="riderGrid" class="grid" aria-live="polite"></div>
   </section>
 
-  <!-- Gallery with lazy thumbnails that open full-res in a lightbox -->
+  <!-- Gallery -->
   <section id="gallery" class="block">
     <h2>Gallery</h2>
     <div class="thumbs" id="galleryThumbs"></div>
@@ -92,81 +92,105 @@
 </div>
 
 <script>
-  // ====== Riders data (12 placeholders) ======
-  // Each rider: { name, bio, linkText, linkHref, img }
-  const riders = [
-    { name: 'Tall Paul', bio: 'Tech links, turbine spins, scene builder since day one.', linkText: 'Instagram', linkHref: '#', img: 'assets/riders/rider1.jpg' },
-    { name: 'Bert', bio: 'Flow style, frontyard classics. Riding since 2004.', linkText: 'Profile', linkHref: '#', img: 'assets/riders/rider2.jpg' },
-    { name: 'Brandon', bio: 'Fast combos, dialed whiplash control.', linkText: 'Link', linkHref: '#', img: 'assets/riders/rider3.jpg' },
-    { name: 'Juan', bio: 'Explosive switches, loves outdoor autumn sessions.', linkText: 'Link', linkHref: '#', img: 'assets/riders/rider4.jpg' },
-    { name: 'Colin', bio: 'Original lines, quiet killer at jams.', linkText: 'Insta', linkHref: '#', img: 'assets/riders/rider5.jpg' },
-    { name: 'Jess', bio: 'Smooth turbines, backwheel consistency.', linkText: 'Link', linkHref: '#', img: 'assets/riders/rider6.jpg' },
-    { name: 'Remy', bio: 'Flatland lifer. Community first.', linkText: 'Link', linkHref: '#', img: 'assets/riders/rider7.jpg' },
-    { name: 'Andre', bio: 'Backyard scientist, loves bike setup chats.', linkText: 'Link', linkHref: '#', img: 'assets/riders/rider8.jpg' },
-    { name: 'Steph', bio: 'Rollers for days. New lines every session.', linkText: 'Link', linkHref: '#', img: 'assets/riders/rider9.jpg' },
-    { name: 'Maya', bio: 'Creative switches and footwork. New to comps.', linkText: 'Link', linkHref: '#', img: 'assets/riders/rider10.jpg' },
-    { name: 'Zhang', bio: 'Signature decade pivots, late-night Union rides.', linkText: 'Link', linkHref: '#', img: 'assets/riders/rider11.jpg' },
-    { name: 'Ali', bio: 'Backwheel surgeon. Loves teaching beginners.', linkText: 'Link', linkHref: '#', img: 'assets/riders/rider12.jpg' }
-  ];
+// ===== Placeholder image (inline SVG) =====
+const PLACEHOLDER =
+  'data:image/svg+xml;utf8,' +
+  encodeURIComponent(`
+    <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800">
+      <rect width="100%" height="100%" fill="#0B0C10"/>
+      <rect x="40" y="40" width="1120" height="720" fill="#11151C" stroke="#2C2F36" stroke-width="4"/>
+      <text x="50%" y="50%" font-family="Arial,Helvetica,sans-serif" font-size="140" fill="#66FCF1" text-anchor="middle" dominant-baseline="middle">
+        ATF
+      </text>
+      <text x="50%" y="62%" font-family="Arial,Helvetica,sans-serif" font-size="36" fill="#C5C6C7" text-anchor="middle">
+        Association of Toronto Flatlanders
+      </text>
+    </svg>
+  `);
 
-  const riderGrid = document.getElementById('riderGrid');
-  const riderCard = (r) => `
-    <article class="card">
-      <img src="${r.img}" alt="${r.name}" loading="lazy" width="400" height="300"/>
-      <div class="pad">
-        <h3>${r.name}</h3>
-        <p>${r.bio}</p>
-        <a href="${r.linkHref}" target="_blank" rel="noopener">${r.linkText}</a>
-      </div>
-    </article>`;
-  riderGrid.innerHTML = riders.map(riderCard).join('');
-
-  // ====== Gallery data ======
-  // Use lightweight thumbnails and link to full-res for speed
-  const gallery = [
-    { thumb: 'assets/gallery/thumbs/atf_01_480.jpg', full: 'assets/gallery/full/atf_01.jpg', alt: 'Summer jam at the waterfront', caption: 'Summer jam — waterfront session' },
-    { thumb: 'assets/gallery/thumbs/atf_02_480.jpg', full: 'assets/gallery/full/atf_02.jpg', alt: 'Backwheel pivot at Union', caption: 'Backwheel pivot — Union' },
-    { thumb: 'assets/gallery/thumbs/atf_03_480.jpg', full: 'assets/gallery/full/atf_03.jpg', alt: 'Autumn flat spot', caption: 'Autumn spot — golden hour' },
-    { thumb: 'assets/gallery/thumbs/atf_04_480.jpg', full: 'assets/gallery/full/atf_04.jpg', alt: 'Turbine practice', caption: 'Turbine practice' },
-    { thumb: 'assets/gallery/thumbs/atf_05_480.jpg', full: 'assets/gallery/full/atf_05.jpg', alt: 'Night ride downtown', caption: 'Night ride — downtown' },
-    { thumb: 'assets/gallery/thumbs/atf_06_480.jpg', full: 'assets/gallery/full/atf_06.jpg', alt: 'Weekend meetup', caption: 'Weekend meetup' }
-  ];
-
-  const thumbs = document.getElementById('galleryThumbs');
-  const thumbTpl = (p) => `
-    <figure class="thumb">
-      <img src="${p.thumb}" alt="${p.alt}" loading="lazy" width="320" height="240" data-full="${p.full}" data-caption="${p.caption}" />
-      <figcaption>${p.caption}</figcaption>
-    </figure>`;
-  thumbs.innerHTML = gallery.map(thumbTpl).join('');
-
-  // ====== Lightbox logic ======
-  const lb = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lbImg');
-  const lbCap = document.getElementById('lbCap');
-  const lbClose = document.getElementById('lbClose');
-
-  const openLB = (src, caption) => {
-    lbImg.src = src;
-    lbCap.textContent = caption || '';
-    lb.setAttribute('aria-hidden','false');
-    document.body.style.overflow='hidden';
-    lbClose && lbClose.focus && lbClose.focus();
-  };
-  const closeLB = () => {
-    lb.setAttribute('aria-hidden','true');
-    lbImg.removeAttribute('src');
-    document.body.style.overflow='';
-  };
-
-  thumbs.addEventListener('click', (e) => {
-    const img = e.target.closest('img');
-    if(!img) return;
-    openLB(img.dataset.full, img.dataset.caption);
+// Universal fallback
+function attachFallbacks() {
+  document.querySelectorAll('img[data-fallback]').forEach(img => {
+    if (!img.getAttribute('src')) img.src = PLACEHOLDER;
+    img.onerror = () => { img.onerror = null; img.src = PLACEHOLDER; };
   });
-  lbClose && lbClose.addEventListener('click', closeLB);
-  lb.addEventListener('click', (e)=>{ if(e.target === lb) closeLB(); });
-  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLB(); });
+}
+
+// ===== Riders =====
+const riders = [
+  { name: 'Tall Paul', bio: 'Tech links, turbine spins, scene builder since day one.', linkText: 'Instagram', linkHref: '#', img: '' },
+  { name: 'Bert', bio: 'Flow style, frontyard classics. Riding since 2004.', linkText: 'Profile', linkHref: '#', img: '' },
+  { name: 'Brandon', bio: 'Fast combos, dialed whiplash control.', linkText: 'Link', linkHref: '#', img: '' },
+  { name: 'Juan', bio: 'Explosive switches, loves outdoor autumn sessions.', linkText: 'Link', linkHref: '#', img: '' },
+  { name: 'Colin', bio: 'Original lines, quiet killer at jams.', linkText: 'Insta', linkHref: '#', img: '' },
+  { name: 'Jess', bio: 'Smooth turbines, backwheel consistency.', linkText: 'Link', linkHref: '#', img: '' },
+  { name: 'Remy', bio: 'Flatland lifer. Community first.', linkText: 'Link', linkHref: '#', img: '' },
+  { name: 'Andre', bio: 'Backyard scientist, loves bike setup chats.', linkText: 'Link', linkHref: '#', img: '' },
+  { name: 'Steph', bio: 'Rollers for days. New lines every session.', linkText: 'Link', linkHref: '#', img: '' },
+  { name: 'Maya', bio: 'Creative switches and footwork. New to comps.', linkText: 'Link', linkHref: '#', img: '' },
+  { name: 'Zhang', bio: 'Signature decade pivots, late-night Union rides.', linkText: 'Link', linkHref: '#', img: '' },
+  { name: 'Ali', bio: 'Backwheel surgeon. Loves teaching beginners.', linkText: 'Link', linkHref: '#', img: '' }
+];
+
+const riderGrid = document.getElementById('riderGrid');
+const riderCard = (r) => `
+  <article class="card">
+    <img src="${r.img || PLACEHOLDER}" data-fallback alt="${r.name}" loading="lazy" width="400" height="300"/>
+    <div class="pad">
+      <h3>${r.name}</h3>
+      <p>${r.bio}</p>
+      <a href="${r.linkHref}" target="_blank" rel="noopener">${r.linkText}</a>
+    </div>
+  </article>`;
+riderGrid.innerHTML = riders.map(riderCard).join('');
+
+// ===== Gallery =====
+const gallery = Array.from({ length: 8 }).map((_, i) => ({
+  thumb: PLACEHOLDER,
+  full: PLACEHOLDER,
+  alt: `ATF gallery placeholder ${i+1}`,
+  caption: `ATF — placeholder ${i+1}`
+}));
+
+const thumbs = document.getElementById('galleryThumbs');
+const thumbTpl = (p) => `
+  <figure class="thumb">
+    <img src="${p.thumb}" data-fallback alt="${p.alt}" loading="lazy" width="320" height="240"
+         data-full="${p.full}" data-caption="${p.caption}" />
+    <figcaption>${p.caption}</figcaption>
+  </figure>`;
+thumbs.innerHTML = gallery.map(thumbTpl).join('');
+
+// ===== Lightbox =====
+const lb = document.getElementById('lightbox');
+const lbImg = document.getElementById('lbImg');
+const lbCap = document.getElementById('lbCap');
+const lbClose = document.getElementById('lbClose');
+
+const openLB = (src, caption) => {
+  lbImg.src = src || PLACEHOLDER;
+  lbCap.textContent = caption || '';
+  lb.setAttribute('aria-hidden','false');
+  document.body.style.overflow='hidden';
+  lbClose && lbClose.focus && lbClose.focus();
+};
+const closeLB = () => {
+  lb.setAttribute('aria-hidden','true');
+  lbImg.removeAttribute('src');
+  document.body.style.overflow='';
+};
+
+thumbs.addEventListener('click', (e) => {
+  const img = e.target.closest('img');
+  if(!img) return;
+  openLB(img.dataset.full, img.dataset.caption);
+});
+lbClose && lbClose.addEventListener('click', closeLB);
+lb.addEventListener('click', (e)=>{ if(e.target === lb) closeLB(); });
+document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLB(); });
+
+// Run fallback attachment
+attachFallbacks();
 </script>
 </body>
 </html>
