@@ -14,7 +14,7 @@
 <body>
 <header class="hero">
   <div class="wrap">
-    <img src="assets/logo.png" alt="ATF logo" class="logo" data-fallback />
+    <img src="assets/logo.png" alt="ATF logo" class="logo" />
     <h1>Association of Toronto Flatlanders</h1>
     <p class="tag">Flatland BMX in Toronto, Canada</p>
     <nav class="nav" aria-label="Primary">
@@ -92,31 +92,18 @@
 </div>
 
 <script>
-// ===== Placeholder image (inline SVG) =====
-const PLACEHOLDER =
-  'data:image/svg+xml;utf8,' +
-  encodeURIComponent(`
-    <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800">
-      <rect width="100%" height="100%" fill="#0B0C10"/>
-      <rect x="40" y="40" width="1120" height="720" fill="#11151C" stroke="#2C2F36" stroke-width="4"/>
-      <text x="50%" y="50%" font-family="Arial,Helvetica,sans-serif" font-size="140" fill="#66FCF1" text-anchor="middle" dominant-baseline="middle">
-        ATF
-      </text>
-      <text x="50%" y="62%" font-family="Arial,Helvetica,sans-serif" font-size="36" fill="#C5C6C7" text-anchor="middle">
-        Association of Toronto Flatlanders
-      </text>
-    </svg>
-  `);
+// ===== Placeholder path (uses your existing logo) =====
+const PLACEHOLDER = 'assets/logo.png';
 
-// Universal fallback
-function attachFallbacks() {
-  document.querySelectorAll('img[data-fallback]').forEach(img => {
+// Attach fallback to any <img data-fallback>
+function attachFallbacks(scope = document) {
+  scope.querySelectorAll('img[data-fallback]').forEach(img => {
     if (!img.getAttribute('src')) img.src = PLACEHOLDER;
     img.onerror = () => { img.onerror = null; img.src = PLACEHOLDER; };
   });
 }
 
-// ===== Riders =====
+// ===== Riders (12 entries, blank img => placeholder) =====
 const riders = [
   { name: 'Tall Paul', bio: 'Tech links, turbine spins, scene builder since day one.', linkText: 'Instagram', linkHref: '#', img: '' },
   { name: 'Bert', bio: 'Flow style, frontyard classics. Riding since 2004.', linkText: 'Profile', linkHref: '#', img: '' },
@@ -143,54 +130,58 @@ const riderCard = (r) => `
     </div>
   </article>`;
 riderGrid.innerHTML = riders.map(riderCard).join('');
+attachFallbacks(riderGrid);
 
-// ===== Gallery =====
+// ===== Gallery: responsive thumbs wrapped in anchors (progressive enhancement) =====
+// Replace thumb/full paths later; placeholders work now.
 const gallery = Array.from({ length: 8 }).map((_, i) => ({
-  thumb: PLACEHOLDER,
-  full: PLACEHOLDER,
-  alt: `ATF gallery placeholder ${i+1}`,
+  thumb: '',           // e.g. 'assets/gallery/thumbs/atf_01_480.jpg'
+  full: '',            // e.g. 'assets/gallery/full/atf_01.jpg'
+  alt: `ATF gallery ${i+1}`,
   caption: `ATF — placeholder ${i+1}`
 }));
 
 const thumbs = document.getElementById('galleryThumbs');
 const thumbTpl = (p) => `
   <figure class="thumb">
-    <img src="${p.thumb}" data-fallback alt="${p.alt}" loading="lazy" width="320" height="240"
-         data-full="${p.full}" data-caption="${p.caption}" />
+    <a class="glink" href="${p.full || PLACEHOLDER}" data-full="${p.full || PLACEHOLDER}" data-caption="${p.caption}">
+      <img src="${p.thumb || PLACEHOLDER}" data-fallback alt="${p.alt}" loading="lazy" width="320" height="240" />
+    </a>
     <figcaption>${p.caption}</figcaption>
   </figure>`;
 thumbs.innerHTML = gallery.map(thumbTpl).join('');
+attachFallbacks(thumbs);
 
-// ===== Lightbox =====
+// ===== Lightbox (anchors intercept; degrades to opening image if JS off) =====
 const lb = document.getElementById('lightbox');
 const lbImg = document.getElementById('lbImg');
 const lbCap = document.getElementById('lbCap');
 const lbClose = document.getElementById('lbClose');
 
-const openLB = (src, caption) => {
+function openLB(src, caption) {
   lbImg.src = src || PLACEHOLDER;
   lbCap.textContent = caption || '';
   lb.setAttribute('aria-hidden','false');
   document.body.style.overflow='hidden';
   lbClose && lbClose.focus && lbClose.focus();
-};
-const closeLB = () => {
+}
+function closeLB() {
   lb.setAttribute('aria-hidden','true');
   lbImg.removeAttribute('src');
   document.body.style.overflow='';
-};
+}
 
+// Intercept clicks on anchors in gallery to open lightbox
 thumbs.addEventListener('click', (e) => {
-  const img = e.target.closest('img');
-  if(!img) return;
-  openLB(img.dataset.full, img.dataset.caption);
+  const link = e.target.closest('a.glink');
+  if (!link) return;
+  e.preventDefault();
+  openLB(link.dataset.full || link.href, link.dataset.caption || '');
 });
+
 lbClose && lbClose.addEventListener('click', closeLB);
 lb.addEventListener('click', (e)=>{ if(e.target === lb) closeLB(); });
 document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLB(); });
-
-// Run fallback attachment
-attachFallbacks();
 </script>
 </body>
 </html>
