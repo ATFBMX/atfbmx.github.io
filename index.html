@@ -3,18 +3,23 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Association of Toronto Flatlanders (ATF)</title>
-  <meta name="description" content="ATF — Toronto Flatland BMX community: riders, videos, gallery, contact." />
+  <title>Association of Toronto Flatlanders (ATF) — Flatland BMX in Toronto</title>
+  <meta name="description" content="ATF — Toronto Flatland BMX community: riders, videos, gallery, jams & mentoring. We ride, mentor, and keep the flatland scene moving in Toronto, Canada." />
+  <meta name="theme-color" content="#0c0f14" />
   <meta property="og:title" content="Association of Toronto Flatlanders (ATF)" />
-  <meta property="og:description" content="Flatland BMX in Toronto, Canada" />
+  <meta property="og:description" content="Flatland BMX community in Toronto, Canada — riders, jams, mentoring & the scene." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://atfbmx.github.io/" />
   <link rel="preload" href="assets/style.css" as="style" />
   <link rel="stylesheet" href="assets/style.css" />
+  <link rel="icon" type="image/png" href="assets/atflogo.png" />
 </head>
 <body>
+
+<!-- ===== HERO ===== -->
 <header class="hero">
   <div class="wrap">
-    <img src="assets/logo.png" alt="" class="logo" />
+    <img src="assets/atflogo.png" alt="ATF logo" class="logo" width="120" height="120" />
     <h1>Association of Toronto Flatlanders</h1>
     <p class="tag">Flatland BMX in Toronto, Canada</p>
     <nav class="nav" aria-label="Primary">
@@ -28,41 +33,46 @@
 </header>
 
 <main class="wrap">
-  <!-- WHO WE ARE + RIDERS GRID -->
-  <section id="about" class="block">
-    <h2>Who We Are</h2>
-    <p>We’re a community of Toronto flatland riders. We ride, mentor, run jams, and keep the scene moving.</p>
 
-    <div id="ridersGrid" class="grid riders-grid" aria-live="polite"></div>
+  <!-- ===== WHO WE ARE ===== -->
+  <section id="about" class="block">
+    <span class="section-label">The Crew</span>
+    <h2>Who We Are</h2>
+    <p class="intro">We’re a community of Toronto flatland riders. We ride, mentor, run jams, and keep the scene moving.</p>
   </section>
 
-  <!-- WHAT WE DO as 3 CARDS (no links) -->
-  <section class="block">
-    <h2>What We Do</h2>
+  <!-- ===== WHAT WE DO ===== -->
+  <section id="what" class="block">
+    <span class="section-label">What We Do</span>
+    <h2>How we grow the scene</h2>
     <div class="grid services-grid">
       <article class="card service">
         <div class="pad">
-          <h3>Open practice sessions & rider mentoring</h3>
-          <p>Regular meetups and open-floor mentoring for all levels. Placeholder for a longer description (2–3 lines) about format, times, and what to expect.</p>
+          <div class="icon">🛹</div>
+          <h3>Open practice &amp; mentoring</h3>
+          <p>Regular meetups and open-floor sessions for all levels. Riders mentor newcomers, trade ropework, and push each other forward.</p>
         </div>
       </article>
       <article class="card service">
         <div class="pad">
-          <h3>Local jams, demos & community events</h3>
-          <p>We organize and support jams, demos, and collaborations with local orgs. Placeholder text explaining how to join or host one.</p>
+          <div class="icon">🎉</div>
+          <h3>Jams, demos &amp; events</h3>
+          <p>We organize and support local jams, demos, and collaborations with Toronto’s BMX community and local orgs.</p>
         </div>
       </article>
       <article class="card service">
         <div class="pad">
-          <h3>Beginner support: tips, setup, progression</h3>
-          <p>Guidance on bike setup, safety, and progression plans. Placeholder text on resources, intros, and first-session help.</p>
+          <div class="icon">🚲</div>
+          <h3>Beginner support</h3>
+          <p>Setup advice, safety basics, and clear progression starting points — get rolling on flatland with real guidance.</p>
         </div>
       </article>
     </div>
   </section>
 
-  <!-- VIDEO -->
+  <!-- ===== FEATURED VIDEO ===== -->
   <section id="video" class="block">
+    <span class="section-label">In Motion</span>
     <h2>Featured Video</h2>
     <div class="video-wrapper">
       <iframe
@@ -75,25 +85,35 @@
     </div>
   </section>
 
-  <!-- GALLERY -->
+  <!-- ===== RIDERS ===== -->
+  <section id="riders" class="block">
+    <span class="section-label">The Riders</span>
+    <h2>Meet the crew</h2>
+    <div id="ridersGrid" class="grid cols-4" aria-live="polite"></div>
+  </section>
+
+  <!-- ===== GALLERY ===== -->
   <section id="gallery" class="block">
+    <span class="section-label">Moments</span>
     <h2>Gallery</h2>
     <div class="thumbs" id="galleryThumbs"></div>
   </section>
 
-  <!-- CONTACT -->
-  <section id="contact" class="block contact">
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="block">
+    <span class="section-label">Get In Touch</span>
     <h2>Contact</h2>
-    <div class="card contact-card">
-      <div class="pad">
-        <p>Want to ride with us, collab on an event, or learn flatland?</p>
-        <p>Email: <a href="mailto:contact@atf-toronto.org">contact@atf-toronto.org</a></p>
-        <p>Instagram: <a href="https://instagram.com/" target="_blank" rel="noopener">Follow us</a></p>
+    <div class="contact">
+      <p style="margin-top:0;color:var(--ink);font-size:1.05rem">Want to ride with us, collab on an event, or learn flatland?</p>
+      <div class="contact-links">
+        <a href="mailto:bmxforce.com@gmail.com"><span class="ico">✉️</span> bmxforce.com@gmail.com</a>
       </div>
     </div>
   </section>
+
 </main>
 
+<!-- ===== FOOTER ===== -->
 <footer class="foot">
   <div class="wrap">
     <nav class="nav foot-nav" aria-label="Footer">
@@ -106,7 +126,7 @@
   </div>
 </footer>
 
-<!-- Lightbox modal (used for gallery and rider photos) -->
+<!-- ===== LIGHTBOX ===== -->
 <div class="lightbox" id="lightbox" aria-hidden="true" aria-label="Image viewer" role="dialog">
   <button class="close" id="lbClose" aria-label="Close (Esc)">Close ✕</button>
   <figure>
@@ -116,51 +136,47 @@
 </div>
 
 <script>
-/* ===== Basic placeholder (your real logo file) ===== */
-const PLACEHOLDER = 'assets/logo.png';
+/* ===== Placeholder (aucune image de secours cassée) ===== */
+const PLACEHOLDER = null;
 
-/* Helpers: add fallback to images that fail */
-function addFallback(img) {
-  if (!img.getAttribute('src')) img.src = PLACEHOLDER;
-  img.onerror = () => { img.onerror = null; img.src = PLACEHOLDER; };
-}
-
-/* ===== RIDERS (8 only) =====
-   Provide thumb + full so clicking opens big version */
+/* ===== RIDERS =====
+   Conserve les photos & liens existants.
+   Les riders sans photo affichent un placeholder élégant (.ph). */
 const riders = [
   { name: 'Tall Paul', bio: 'Tech links, turbine spins, scene builder since day one.', linkText: 'Instagram', linkHref: '#', thumb: 'assets/riders/tallpaulbmx12.jpg', full: 'assets/riders/tallpaulbmx12.jpg' },
-  { name: 'Bert',       bio: 'Flow style, frontyard classics. Riding since 2004.',     linkText: 'Profile',   linkHref: '#', thumb: '', full: '' },
+  { name: 'Bert',       bio: 'Flow style, frontyard classics. Riding since 2004.',     linkText: 'Profile',   linkHref: '#' },
   { name: 'Brandon',    bio: 'Fast combos, dialed whiplash control.',                   linkText: 'Link',      linkHref: '#', thumb: 'assets/riders/img_4031-1-924x924.jpg', full: 'assets/riders/img_4031-1-924x924.jpg' },
-  { name: 'Juan',       bio: 'Explosive switches, loves outdoor autumn sessions.',      linkText: 'Link',      linkHref: '#', thumb: '', full: '' },
-  { name: 'Colin',      bio: 'Original lines, quiet killer at jams.',                   linkText: 'Insta',     linkHref: '#', thumb: '', full: '' },
-  { name: 'Jess',       bio: 'Smooth turbines, backwheel consistency.',                 linkText: 'Link',      linkHref: '#', thumb: '', full: '' },
-  { name: 'Remy',       bio: 'Flatland lifer. Community first.',                        linkText: 'Link',      linkHref: '#', thumb: '', full: '' },
-  { name: 'Ro',      bio: 'Riding for many years Flat and Street Freestyle Style',      linkText: 'Red Label Art',      linkHref: 'https://www.redlabelart.com/', thumb: '', full: '' }
+  { name: 'Juan',       bio: 'Explosive switches, loves outdoor autumn sessions.',      linkText: 'Link',      linkHref: '#' },
+  { name: 'Colin',      bio: 'Original lines, quiet killer at jams.',                   linkText: 'Insta',     linkHref: '#' },
+  { name: 'Jess',       bio: 'Smooth turbines, backwheel consistency.',                 linkText: 'Link',      linkHref: '#' },
+  { name: 'Remy',       bio: 'Flatland lifer. Community first.',                        linkText: 'Link',      linkHref: '#' },
+  { name: 'Ro',         bio: 'Riding for many years Flat and Street Freestyle Style',   linkText: 'Red Label Art', linkHref: 'https://www.redlabelart.com/' }
 ];
 
 const ridersGrid = document.getElementById('ridersGrid');
 ridersGrid.innerHTML = riders.map(r => `
   <article class="card rider">
-    <a href="${r.full || PLACEHOLDER}" class="rider-link" data-full="${r.full || PLACEHOLDER}" data-caption="${r.name}">
-      <img src="${r.thumb || PLACEHOLDER}" alt="${r.name}" class="rider-img" loading="lazy" width="400" height="300" />
-    </a>
+    ${r.thumb
+      ? `<a href="${r.full || r.thumb}" class="rider-link" data-full="${r.full || r.thumb}" data-caption="${r.name}">
+           <img src="${r.thumb}" alt="${r.name}" class="rider-img" loading="lazy" />
+         </a>`
+      : `<div class="ph">${r.name}</div>`}
     <div class="pad">
       <h3>${r.name}</h3>
       <p>${r.bio}</p>
-      <a href="${r.linkHref}" target="_blank" rel="noopener">${r.linkText}</a>
+      ${r.linkHref && r.linkHref !== '#' ? `<a class="linkbtn" href="${r.linkHref}" target="_blank" rel="noopener">${r.linkText}</a>` : ''}
     </div>
   </article>
 `).join('');
-ridersGrid.querySelectorAll('img').forEach(addFallback);
 
-/* Click rider -> lightbox */
+/* ===== LIGHTBOX ===== */
 const lb = document.getElementById('lightbox');
 const lbImg = document.getElementById('lbImg');
 const lbCap = document.getElementById('lbCap');
 const lbClose = document.getElementById('lbClose');
 
 function openLB(src, caption) {
-  lbImg.src = src || PLACEHOLDER;
+  lbImg.src = src || '';
   lbCap.textContent = caption || '';
   lb.setAttribute('aria-hidden','false');
   document.body.style.overflow='hidden';
@@ -176,10 +192,12 @@ ridersGrid.addEventListener('click', (e) => {
   const link = e.target.closest('a.rider-link');
   if (!link) return;
   e.preventDefault();
-  openLB(link.dataset.full || link.href, link.dataset.caption || '');
+  openLB(link.dataset.full || link.getAttribute('href'), link.dataset.caption || '');
 });
 
-/* ===== GALLERY (same lightbox) ===== */
+/* ===== GALLERY =====
+   À remplir avec les vraies photos dans assets/gallery/.
+   Tant que vide : affiche des placeholders. */
 const gallery = Array.from({ length: 8 }).map((_, i) => ({
   thumb: '',  // e.g. 'assets/gallery/thumbs/atf_01_480.jpg'
   full:  '',  // e.g. 'assets/gallery/full/atf_01.jpg'
@@ -188,25 +206,25 @@ const gallery = Array.from({ length: 8 }).map((_, i) => ({
 }));
 
 const thumbs = document.getElementById('galleryThumbs');
-thumbs.innerHTML = gallery.map(p => `
+thumbs.innerHTML = gallery.map((p, i) => `
   <figure class="thumb">
-    <a class="glink" href="${p.full || PLACEHOLDER}" data-full="${p.full || PLACEHOLDER}" data-caption="${p.caption}">
-      <img src="${p.thumb || PLACEHOLDER}" alt="${p.alt}" loading="lazy" width="320" height="240" />
-    </a>
+    ${p.full
+      ? `<a class="glink" href="${p.full}" data-full="${p.full}" data-caption="${p.caption}">
+           ${p.thumb ? `<img src="${p.thumb}" alt="${p.alt}" loading="lazy" />` : `<img src="${p.full}" alt="${p.alt}" loading="lazy" />`}
+         </a>`
+      : `<div class="ph">Gallery ${i+1}</div>`}
     <figcaption>${p.caption}</figcaption>
   </figure>
 `).join('');
-thumbs.querySelectorAll('img').forEach(addFallback);
 
-/* Click gallery -> lightbox */
 thumbs.addEventListener('click', (e) => {
   const link = e.target.closest('a.glink');
   if (!link) return;
   e.preventDefault();
-  openLB(link.dataset.full || link.href, link.dataset.caption || '');
+  openLB(link.dataset.full || link.getAttribute('href'), link.dataset.caption || '');
 });
 
-/* Close lightbox */
+/* ===== Close lightbox ===== */
 lbClose && lbClose.addEventListener('click', closeLB);
 lb.addEventListener('click', (e)=>{ if(e.target === lb) closeLB(); });
 document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLB(); });
