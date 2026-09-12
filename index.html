@@ -209,16 +209,19 @@
 <!-- ===== HERO ===== -->
 <header class="hero" id="top">
   <div class="hero-media">
-    <div class="hero-video">
+    <img class="hero-poster" src="assets/hero-bg.jpg" alt="Flatland BMX rider in Toronto" />
+    <div class="hero-video" id="heroVideo">
       <iframe
-        src="https://www.youtube.com/embed/o8P-oUWC4Nw?autoplay=1&mute=1&loop=1&playlist=o8P-oUWC4Nw&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&disablekb=1&fs=0"
+        id="heroVideoFrame"
+        src=""
+        data-src="https://www.youtube-nocookie.com/embed/o8P-oUWC4Nw?autoplay=1&mute=1&loop=1&playlist=o8P-oUWC4Nw&controls=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&disablekb=1&fs=0&enablejsapi=1"
         title="ATF Toronto Flatland - background video"
         frameborder="0"
         allow="autoplay; encrypted-media; picture-in-picture"
+        allowfullscreen
         tabindex="-1"
         aria-hidden="true"></iframe>
     </div>
-    <img class="hero-poster" src="assets/hero-bg.jpg" alt="Flatland BMX rider in Toronto" />
     <div class="hero-scrim"></div>
   </div>
   <div class="wrap hero-in">
@@ -483,6 +486,78 @@
 
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
+
+/* ===== Hero: video de fond =====
+   1. La photo reste visible tant que la video ne joue pas.
+   2. On charge l'iframe seulement apres le 1er contact utilisateur si l'autoplay
+      est bloque par le navigateur.
+   3. Des que la video joue, on masque la photo.
+*/
+(function heroVideo(){
+  const frame = document.getElementById('heroVideoFrame');
+  const box   = document.getElementById('heroVideo');
+  const poster= document.querySelector('.hero-poster');
+  if (!frame || !box) return;
+
+  let started = false;
+
+  function showVideo(){
+    if (started) return;
+    started = true;
+    box.classList.add('is-playing');
+    if (poster) poster.classList.add('is-hidden');
+  }
+  function fail(){
+    /* la video ne joue pas -> on garde la photo, on retire l'iframe */
+    box.classList.remove('is-playing');
+    if (poster) poster.classList.remove('is-hidden');
+    frame.removeAttribute('src');
+  }
+
+  // charger l'iframe
+  frame.src = frame.dataset.src;
+
+  // ecouter l'API YouTube
+  let tries = 0;
+  const poll = setInterval(() => {
+    tries++;
+    try {
+      const w = frame.contentWindow;
+      if (!w) return;
+      w.postMessage(JSON.stringify({event:'listening', id:'heroVideoFrame'}), '*');
+      if (tries > 30) {
+        clearInterval(poll);
+        if (!started) fail();
+      }
+    } catch(e){ /* cross-origin tant que pas pret */ }
+  }, 500);
+
+  window.addEventListener('message', (e) => {
+    if (typeof e.data !== 'string') return;
+    try {
+      const d = JSON.parse(e.data);
+      if (d.event === 'onStateChange' && (d.info === 1 || d.info === 3)) {
+        clearInterval(poll);
+        showVideo();
+      }
+    } catch(err){}
+  });
+
+  // si l'utilisateur interagit, YouTube finira par demarrer
+  ['click','touchstart','keydown','scroll'].forEach(ev => {
+    window.addEventListener(ev, () => {
+      if (started) return;
+      try {
+        frame.contentWindow.postMessage(JSON.stringify({
+          event:'command', func:'playVideo', args:[]
+        }), '*');
+      } catch(err){}
+    }, {passive:true, once:false});
+  });
+
+  // securite: si rien ne demarre apres 12s, on garde la photo
+  setTimeout(() => { if (!started) fail(); }, 12000);
+})();
 
 /* ===== NAV sticky + burger ===== */
 const topbar = document.getElementById('topbar');
