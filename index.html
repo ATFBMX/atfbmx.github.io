@@ -209,12 +209,21 @@
 <!-- ===== HERO ===== -->
 <header class="hero" id="top">
   <div class="hero-media">
-    <img src="assets/hero-bg.jpg" alt="Flatland BMX rider in Toronto" />
+    <div class="hero-video">
+      <iframe
+        src="https://www.youtube.com/embed/o8P-oUWC4Nw?autoplay=1&mute=1&loop=1&playlist=o8P-oUWC4Nw&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&disablekb=1&fs=0"
+        title="ATF Toronto Flatland - background video"
+        frameborder="0"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        tabindex="-1"
+        aria-hidden="true"></iframe>
+    </div>
+    <img class="hero-poster" src="assets/hero-bg.jpg" alt="Flatland BMX rider in Toronto" />
     <div class="hero-scrim"></div>
   </div>
   <div class="wrap hero-in">
     <p class="eyebrow">Toronto &amp; the GTA</p>
-    <h1>We ride flatland.<br /><em>And we&rsquo;re keeping it alive.</em></h1>
+    <h1>We ride BMX Flatland.<br /><em>And we&rsquo;re keeping it alive.</em></h1>
     <p class="lede">No ramps. No jumps. Just a bike, balance, and years of practice. The Association of Toronto Flatlanders is the crew, the scene, and the people who teach it to whoever wants to learn.</p>
     <div class="hero-btns">
       <a class="btn" href="#space">Host us this winter</a>
@@ -499,7 +508,6 @@ const shows = [
     title: 'Performance demo',
     dur: '20–45 min',
     text: 'A choreographed flatland show. Two to four riders rotating, high-energy and music-driven, on any flat surface. Ideal as entertainment at a festival, a community event or a school assembly.',
-    video: 'o8P-oUWC4Nw',
     hero: 'assets/demo/demo_hero.jpg',
     heroAlt: 'Flatland rider performing in front of a crowd at a demo',
     photos: [
@@ -548,18 +556,7 @@ const shows = [
 const showsGrid = document.getElementById('showsGrid');
 showsGrid.innerHTML = shows.map(s => `
   <article class="card show-card">
-    ${s.video ? `
-    <div class="demo-hero demo-hero-video">
-      <iframe
-        src="https://www.youtube.com/embed/${s.video}?autoplay=1&mute=1&loop=1&playlist=${s.video}&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1&iv_load_policy=3&disablekb=1&fs=0&vq=small&hd=0"
-        title="${s.title} video"
-        frameborder="0"
-        allow="autoplay; encrypted-media; picture-in-picture"
-        loading="lazy"
-        tabindex="-1"
-        aria-hidden="true"></iframe>
-      <span class="demo-hero-scrim" aria-hidden="true"></span>
-    </div>` : s.hero ? `
+    ${s.hero ? `
     <button class="demo-hero" type="button" data-full="${s.hero}" data-alt="${s.heroAlt || ''}" aria-label="View photo">
       <img src="${s.hero.replace(/\.jpg$/, '_600.jpg')}" alt="${s.heroAlt || s.title}" loading="lazy" />
     </button>` : ''}
