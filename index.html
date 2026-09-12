@@ -367,6 +367,8 @@ const shows = [
     title: 'Performance demo',
     dur: '20–45 min',
     text: 'A choreographed flatland show. Two to four riders rotating, high-energy and music-driven, on any flat surface. Ideal as entertainment at a festival, a community event or a school assembly.',
+    hero: 'assets/demo/demo_hero.jpg',
+    heroAlt: 'Flatland rider performing in front of a crowd at a demo',
     photos: [
       { src: 'assets/demo/demo_street_crowd.jpg', alt: 'Flatland rider mid-trick in front of a street crowd behind barriers' },
       { src: 'assets/demo/demo_ring.jpg',         alt: 'Two flatland riders performing inside a boxing ring on a stage' },
@@ -383,6 +385,8 @@ const shows = [
     title: 'Hands-on initiation',
     dur: '60–120 min',
     text: 'A demo, then everyone gets a bike. Beginner flatland basics taught in small groups: balance, rolling, first tricks. Bikes and helmets provided. This is the format that works best for youth and beginners.',
+    hero: 'assets/init/init_hero.jpg',
+    heroAlt: 'Kids learning flatland BMX during a hands-on initiation session',
     photos: [
       { src: 'assets/init/init_coach_kid.jpg',   alt: 'Coach guiding a young rider on a BMX indoors' },
       { src: 'assets/init/init_group_grass.jpg', alt: 'Group of kids on BMX bikes with helmets on a grass field' },
@@ -411,6 +415,10 @@ const shows = [
 const showsGrid = document.getElementById('showsGrid');
 showsGrid.innerHTML = shows.map(s => `
   <article class="card show-card">
+    ${s.hero ? `
+    <button class="demo-hero" type="button" data-full="${s.hero}" data-alt="${s.heroAlt || ''}" aria-label="View photo">
+      <img src="${s.hero.replace(/\.jpg$/, '_600.jpg')}" alt="${s.heroAlt || s.title}" loading="lazy" />
+    </button>` : ''}
     <div class="pad">
       <div class="icon">${s.icon}</div>
       <h3>${s.title}</h3>
@@ -429,8 +437,14 @@ showsGrid.innerHTML = shows.map(s => `
   </article>
 `).join('');
 
-/* Photos dans la carte Performance demo -> lightbox */
+/* Photos dans les cartes demo -> lightbox */
 showsGrid.addEventListener('click', (e) => {
+  const hero = e.target.closest('.demo-hero');
+  if (hero) {
+    e.preventDefault();
+    openLB([{ full: hero.dataset.full, caption: '' }], 0);
+    return;
+  }
   const btn = e.target.closest('.demo-shot');
   if (!btn) return;
   e.preventDefault();
