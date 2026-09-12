@@ -29,10 +29,27 @@
   <link rel="stylesheet" href="assets/style.css" />
   <link rel="icon" type="image/png" href="assets/atflogo.png" />
 
+  <!-- Discovery: moteurs de recherche et agents IA -->
+  <link rel="sitemap" type="application/xml" href="https://atfbmx.github.io/sitemap.xml" />
+  <link rel="alternate" type="text/markdown" href="https://atfbmx.github.io/llms.txt" title="LLM summary" />
+  <link rel="alternate" type="text/markdown" href="https://atfbmx.github.io/agents.md" title="Full content for AI agents" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="googlebot" content="index, follow" />
+
+  <!-- Geo: cible locale Toronto / GTA -->
+  <meta name="geo.region" content="CA-ON" />
+  <meta name="geo.placename" content="Toronto" />
+  <meta property="place:location:latitude" content="43.6532" />
+  <meta property="place:location:longitude" content="-79.3832" />
+
+  <meta property="og:locale" content="en_CA" />
+  <meta property="og:image:alt" content="Flatland BMX rider in Toronto" />
+
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "SportsOrganization",
+    "@id": "https://atfbmx.github.io/#organization",
     "name": "Association of Toronto Flatlanders",
     "alternateName": "ATF BMX",
     "url": "https://atfbmx.github.io/",
@@ -41,12 +58,127 @@
     "email": "bmxforce.com@gmail.com",
     "description": "Flatland BMX community and demo crew based in Toronto, Canada. We perform demos and shows, run hands-on workshops for schools and community centres, and mentor new riders.",
     "sport": "Flatland BMX",
+    "foundingLocation": { "@type": "Place", "name": "Toronto, Ontario, Canada" },
     "areaServed": [
       { "@type": "City", "name": "Toronto" },
       { "@type": "AdministrativeArea", "name": "Greater Toronto Area" }
     ],
     "address": { "@type": "PostalAddress", "addressLocality": "Toronto", "addressRegion": "ON", "addressCountry": "CA" },
-    "knowsAbout": ["Flatland BMX", "BMX demos", "BMX workshops", "Youth mentoring", "Cycling safety"]
+    "knowsAbout": ["Flatland BMX", "BMX demos", "BMX workshops", "Youth mentoring", "Cycling safety"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "bmxforce.com@gmail.com",
+      "contactType": "Bookings and general enquiries",
+      "areaServed": "CA",
+      "availableLanguage": ["en", "fr"]
+    },
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "name": "Performance demo",
+        "description": "A choreographed flatland BMX show. Two to four riders rotating, high-energy and music-driven, on any flat surface. 20 to 45 minutes. Ideal at a festival, a community event or a school assembly.",
+        "itemOffered": { "@type": "Service", "name": "Flatland BMX performance demo", "serviceType": "BMX demo show" },
+        "areaServed": "Toronto and the Greater Toronto Area"
+      },
+      {
+        "@type": "Offer",
+        "name": "Hands-on initiation",
+        "description": "A demo, then everyone gets a bike. Beginner flatland basics taught in small groups: balance, rolling, first tricks. Bikes and helmets provided. 60 to 120 minutes.",
+        "itemOffered": { "@type": "Service", "name": "Flatland BMX initiation workshop", "serviceType": "Hands-on workshop" },
+        "areaServed": "Toronto and the Greater Toronto Area"
+      },
+      {
+        "@type": "Offer",
+        "name": "Schools, camps and presentations",
+        "description": "A full-day rotation through several groups, plus a talk about the sport, its history and where it can take you. Ties into physical education, cycling safety and goal-setting.",
+        "itemOffered": { "@type": "Service", "name": "School BMX program and presentation", "serviceType": "Educational program" },
+        "areaServed": "Toronto and the Greater Toronto Area"
+      },
+      {
+        "@type": "Offer",
+        "name": "Partnerships and sponsorships",
+        "description": "Work with brands, shops and organizations who want visibility at rides and events, or who want to help build a real flatland scene in Toronto.",
+        "itemOffered": { "@type": "Service", "name": "Brand partnership and sponsorship", "serviceType": "Sponsorship" }
+      }
+    ],
+    "offers": {
+      "@type": "Offer",
+      "name": "Winter indoor riding space",
+      "description": "The ATF is looking for a flat, dry indoor space of roughly 40 x 40 feet for a two to three hour weekly slot from November to April, in exchange for free beginner sessions, demos and mentoring for the host venue."
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is the Association of Toronto Flatlanders (ATF)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Association of Toronto Flatlanders is a flatland BMX crew based in Toronto, Ontario, Canada, active across the Greater Toronto Area. Flatland is the discipline of BMX riding done on flat ground, with no ramps and no jumps. The ATF rides together, mentors new riders, performs demos, and is looking for indoor space so the scene can keep riding through the winter."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you do BMX demos and shows in Toronto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The ATF performs flatland BMX demos and shows across Toronto and the Greater Toronto Area for festivals, schools, community events and corporate days. A performance demo runs 20 to 45 minutes with two to four riders rotating, and needs only a flat, open surface: no ramp, no track, no special venue."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you run hands-on BMX initiation sessions for beginners?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. After the demo, everyone gets a bike. Beginner flatland basics are taught in small groups: balance, rolling and first tricks. Bikes and helmets are provided. A typical hands-on initiation runs 60 to 120 minutes and works best for youth and beginners."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does a BMX demo or workshop cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Prices are not published. Every event is quoted individually based on length, travel, number of riders, and whether it is a show only or a full hands-on initiation. Contact the ATF with details of your event and a quote is sent within a few days."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you travel outside Toronto?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The core area is Toronto and the Greater Toronto Area. Travel outside the GTA is discussed case by case when quoting an event."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is it free to come ride with the ATF?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Open sessions are free, with no membership and no registration. All ages and all levels are welcome. The home base is Alexandra Park, also known as Dunbat, in downtown Toronto, plus spots across the GTA."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Does the ATF need indoor space for the winter?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Toronto winters shut flatland down from November to April. The ATF is looking for a flat, dry indoor space of roughly 40 x 40 feet for a two to three hour weekly slot from November to April. In exchange the venue gets free beginner sessions, two or three performance demos during the season, mentoring, and photo and video coverage credited to the venue."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I contact the Association of Toronto Flatlanders?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Email bmxforce.com@gmail.com. The ATF is based in Toronto, Ontario, Canada, and serves Toronto and the Greater Toronto Area."
+        }
+      }
+    ]
   }
   </script>
 </head>

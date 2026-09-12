@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://atfbmx.github.io/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://atfbmx.github.io/assets/hero-bg.png</image:loc>
+      <image:title>ATF Toronto Flatland BMX</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://atfbmx.github.io/assets/demo/demo_street_crowd.jpg</image:loc>
+      <image:title>Flatland BMX demo in front of a street crowd, Toronto</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://atfbmx.github.io/assets/demo/demo_grandstand.jpg</image:loc>
+      <image:title>Flatland BMX demo in front of a full grandstand</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://atfbmx.github.io/assets/init/init_coach_kid.jpg</image:loc>
+      <image:title>Hands-on flatland BMX initiation for kids</image:title>
+    </image:image>
+  </url>
+</urlset>

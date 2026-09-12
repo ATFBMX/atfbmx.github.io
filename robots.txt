@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://atfbmx.github.io/sitemap.xml
