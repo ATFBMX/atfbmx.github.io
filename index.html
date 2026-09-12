@@ -3,110 +3,300 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Association of Toronto Flatlanders (ATF) — Flatland BMX in Toronto</title>
-  <meta name="description" content="ATF — Toronto Flatland BMX community: riders, videos, gallery, jams & mentoring. We ride, mentor, and keep the flatland scene moving in Toronto, Canada." />
-  <meta name="theme-color" content="#0c0f14" />
+  <title>ATF - Toronto Flatland BMX | Demos, Shows &amp; Community</title>
+  <meta name="description" content="Association of Toronto Flatlanders - flatland BMX demos, shows and hands-on workshops for schools, community centres and events across Toronto &amp; the GTA. We also mentor new riders and run the local flatland scene." />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="keywords" content="flatland BMX Toronto, BMX demo Toronto, BMX show, community centre BMX program, youth BMX workshop, GTA, Association of Toronto Flatlanders" />
+  <meta name="author" content="Association of Toronto Flatlanders" />
+  <link rel="canonical" href="https://atfbmx.github.io/" />
+
   <meta property="og:title" content="Association of Toronto Flatlanders (ATF)" />
-  <meta property="og:description" content="Flatland BMX community in Toronto, Canada — riders, jams, mentoring & the scene." />
+  <meta property="og:description" content="Flatland BMX demos, shows and workshops for Toronto &amp; the GTA. Plus a community of riders keeping the scene moving." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://atfbmx.github.io/" />
+  <meta property="og:site_name" content="Association of Toronto Flatlanders" />
+  <meta property="og:image" content="https://atfbmx.github.io/assets/hero-bg.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Association of Toronto Flatlanders (ATF)" />
+  <meta name="twitter:description" content="Flatland BMX demos, shows and workshops for Toronto &amp; the GTA." />
+  <meta name="twitter:image" content="https://atfbmx.github.io/assets/hero-bg.jpg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Archivo+Black&display=swap" rel="stylesheet" />
+
   <link rel="preload" href="assets/style.css" as="style" />
   <link rel="stylesheet" href="assets/style.css" />
   <link rel="icon" type="image/png" href="assets/atflogo.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SportsOrganization",
+    "name": "Association of Toronto Flatlanders",
+    "alternateName": "ATF BMX",
+    "url": "https://atfbmx.github.io/",
+    "logo": "https://atfbmx.github.io/assets/atflogo.png",
+    "image": "https://atfbmx.github.io/assets/hero-bg.jpg",
+    "email": "bmxforce.com@gmail.com",
+    "description": "Flatland BMX community and demo crew based in Toronto, Canada. We perform demos and shows, run hands-on workshops for schools and community centres, and mentor new riders.",
+    "sport": "Flatland BMX",
+    "areaServed": [
+      { "@type": "City", "name": "Toronto" },
+      { "@type": "AdministrativeArea", "name": "Greater Toronto Area" }
+    ],
+    "address": { "@type": "PostalAddress", "addressLocality": "Toronto", "addressRegion": "ON", "addressCountry": "CA" },
+    "knowsAbout": ["Flatland BMX", "BMX demos", "BMX workshops", "Youth mentoring", "Cycling safety"]
+  }
+  </script>
 </head>
 <body>
 
-<!-- ===== HERO ===== -->
-<header class="hero">
-  <div class="wrap">
-    <img src="assets/atflogo.png" alt="ATF logo" class="logo" width="120" height="120" />
-    <h1>Association of Toronto Flatlanders</h1>
-    <p class="tag">Flatland BMX in Toronto, Canada</p>
-    <nav class="nav" aria-label="Primary">
-      <a href="#about">Who We Are</a>
+<!-- ===== NAV ===== -->
+<nav class="topbar" id="topbar" aria-label="Primary">
+  <div class="wrap bar-in">
+    <a class="brand" href="#top">
+      <img src="assets/atflogo.png" alt="ATF" />
+      <span>ATF<small>Toronto Flatland</small></span>
+    </a>
+    <button class="burger" id="burger" aria-label="Menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="menu" id="menu">
+      <a href="#crew">The Crew</a>
       <a href="#video">Video</a>
-      <a href="#gallery">Gallery</a>
+      <a href="#what">What We Do</a>
+      <a href="#shows">Demos &amp; Shows</a>
+      <a href="#space">Winter Space</a>
       <a href="#contact">Contact</a>
-    </nav>
-    <a class="cta" href="#video">Watch the clip ↓</a>
+      <a class="btn btn-sm" href="#shows">Book a demo</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="top">
+  <div class="hero-media">
+    <img src="assets/hero-bg.jpg" alt="Flatland BMX rider in Toronto" />
+    <div class="hero-scrim"></div>
+  </div>
+  <div class="wrap hero-in">
+    <p class="eyebrow">Toronto &amp; the GTA</p>
+    <h1>We ride flatland.<br /><em>And we&rsquo;re keeping it alive.</em></h1>
+    <p class="lede">No ramps. No jumps. Just a bike, balance, and years of practice. The Association of Toronto Flatlanders is the crew, the scene, and the people who teach it to whoever wants to learn.</p>
+    <div class="hero-btns">
+      <a class="btn" href="#shows">Book a demo or show</a>
+      <a class="btn btn-line" href="#space">Host us this winter</a>
+    </div>
   </div>
 </header>
 
-<main class="wrap">
+<main>
+
+  <!-- ===== THE CREW ===== -->
+  <section id="crew" class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">The Crew</p>
+        <h2>Meet the riders</h2>
+        <p class="sub">These are the faces behind ATF. Local riders, different styles, same scene. We ride together, we push each other, and we show up for anyone who wants in.</p>
+      </div>
+      <div id="ridersGrid" class="rider-grid" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <!-- ===== VIDEO ===== -->
+  <section id="video" class="sec sec-alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">In Motion</p>
+        <h2>See it for yourself</h2>
+        <p class="sub">Flatland is hard to explain and easy to watch. This is what we do.</p>
+      </div>
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/o8P-oUWC4Nw?rel=0"
+          title="ATF Toronto Flatland - Featured Video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+          loading="lazy"
+          referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      </div>
+    </div>
+  </section>
 
   <!-- ===== WHO WE ARE ===== -->
-  <section id="about" class="block">
-    <span class="section-label">The Crew</span>
-    <h2>Who We Are</h2>
-    <p class="intro">We’re a community of Toronto flatland riders. We ride, mentor, run jams, and keep the scene moving.</p>
+  <section id="about" class="sec">
+    <div class="wrap narrow">
+      <p class="eyebrow">Who We Are</p>
+      <h2>Part of a Canadian tradition</h2>
+      <p class="big">Canada has always produced flatland riders at the very top of the sport. Chase Gouin, out of Ontario, is one of the most influential flatland riders in the history of BMX, and his name is written into the sport&rsquo;s history books <a href="http://www.23mag.com/gens/gouin.htm" target="_blank" rel="noopener">(23mag archive)</a>.</p>
+      <p class="big">The ATF picks up that thread. We are the riders, the lovers, and the people who keep flatland alive in Toronto and across the GTA, through practice, mentorship, jams, and by taking the sport out into the city.</p>
+      <div class="facts">
+        <div class="fact"><strong>Toronto</strong><span>&amp; the GTA</span></div>
+        <div class="fact"><strong>Flatland</strong><span>Since day one</span></div>
+        <div class="fact"><strong>All ages</strong><span>&amp; all levels</span></div>
+        <div class="fact"><strong>Free</strong><span>To come ride</span></div>
+      </div>
+    </div>
   </section>
 
   <!-- ===== WHAT WE DO ===== -->
-  <section id="what" class="block">
-    <span class="section-label">What We Do</span>
-    <h2>How we grow the scene</h2>
-    <div class="grid services-grid">
-      <article class="card service">
-        <div class="pad">
-          <div class="icon">🛹</div>
-          <h3>Open practice &amp; mentoring</h3>
-          <p>Regular meetups and open-floor sessions for all levels. Riders mentor newcomers, trade ropework, and push each other forward.</p>
-        </div>
-      </article>
-      <article class="card service">
-        <div class="pad">
-          <div class="icon">🎉</div>
-          <h3>Jams, demos &amp; events</h3>
-          <p>We organize and support local jams, demos, and collaborations with Toronto’s BMX community and local orgs.</p>
-        </div>
-      </article>
-      <article class="card service">
-        <div class="pad">
-          <div class="icon">🚲</div>
-          <h3>Beginner support</h3>
-          <p>Setup advice, safety basics, and clear progression starting points — get rolling on flatland with real guidance.</p>
-        </div>
-      </article>
+  <section id="what" class="sec sec-alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">What We Do</p>
+        <h2>What the ATF actually does</h2>
+        <p class="sub">Three things: we ride, we look for space to ride in the winter, and we take flatland to the public.</p>
+      </div>
+
+      <div class="do-grid">
+        <article class="do-card">
+          <div class="do-num">01</div>
+          <h3>Ride &mdash; all season</h3>
+          <p class="do-loc">Alexandra Park &amp; spots across the GTA</p>
+          <div class="do-body">
+            <p>Our home base is Alexandra Park in downtown Toronto, and we move around the GTA from there. Open sessions, no membership, no cost. If you have a bike and you&rsquo;re curious, you&rsquo;re already welcome. Experienced riders mentor anyone starting out, and we help with bike setup and the basics.</p>
+          </div>
+        </article>
+
+        <article class="do-card do-feature">
+          <div class="do-num">02</div>
+          <h3>Find space to ride in the winter</h3>
+          <p class="do-loc">Looking now &mdash; Nov to April</p>
+          <div class="do-body">
+            <p>Toronto winters shut flatland down for five months. Riders stop, and the scene loses people every year. We&rsquo;re actively looking for indoor space &mdash; a gym, a hall, a lobby, an empty room &mdash; for a few hours a week. In exchange we bring free beginner sessions, demos, and mentoring for your community.</p>
+          </div>
+          <p class="do-link"><a href="#space">See what we offer &rarr;</a></p>
+        </article>
+
+        <article class="do-card">
+          <div class="do-num">03</div>
+          <h3>Shows, events &amp; initiations</h3>
+          <p class="do-loc">Across Toronto &amp; the GTA</p>
+          <div class="do-body">
+            <p>We perform demos and shows, run hands-on initiation sessions where people get on a bike and try flatland themselves, and give presentations about the sport. For festivals, schools, community events, corporate days, and anything else that needs something nobody else is doing.</p>
+          </div>
+          <p class="do-link"><a href="#shows">See demos &amp; shows &rarr;</a></p>
+        </article>
+      </div>
     </div>
   </section>
 
-  <!-- ===== FEATURED VIDEO ===== -->
-  <section id="video" class="block">
-    <span class="section-label">In Motion</span>
-    <h2>Featured Video</h2>
-    <div class="video-wrapper">
-      <iframe
-        src="https://www.youtube.com/embed/o8P-oUWC4Nw?rel=0"
-        title="ATF Toronto Flatland — Featured Video"
-        frameborder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowfullscreen
-        referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  <!-- ===== PAYANT: DEMOS & SHOWS ===== -->
+  <section id="shows" class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">For Events</p>
+        <h2>Demos, shows &amp; initiations</h2>
+        <p class="sub">We bring flatland BMX to your event. Riders perform, then hand the bikes over and let people try it themselves. No ramp, no track, no special venue &mdash; all we need is a flat, open space.</p>
+      </div>
+
+      <div class="grid two" id="showsGrid"></div>
+
+      <div class="callout">
+        <div class="callout-body">
+          <h3>Pricing</h3>
+          <p>Every event is different &mdash; length, travel, number of riders, whether you want a show only or a full hands-on initiation. Tell us what you have in mind and we&rsquo;ll send a quote within a few days.</p>
+        </div>
+        <a class="btn" href="#contact">Get a quote</a>
+      </div>
     </div>
   </section>
 
-  <!-- ===== RIDERS ===== -->
-  <section id="riders" class="block">
-    <span class="section-label">The Riders</span>
-    <h2>Meet the crew</h2>
-    <div id="ridersGrid" class="grid cols-4" aria-live="polite"></div>
+  <!-- ===== HIVER: RIDE SPACE ===== -->
+  <section id="space" class="sec sec-dark">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Winter Program</p>
+        <h2>Give us a floor, we&rsquo;ll fill it</h2>
+        <p class="sub">A gym, a hall, a lobby, an empty room. A few hours a week between November and April. That&rsquo;s all it takes to keep a whole sport alive in this city through the winter.</p>
+      </div>
+
+      <div class="exchange">
+        <div class="ex-col offer">
+          <h3>What we bring</h3>
+          <ul>
+            <li>A supervised, insured program run by experienced riders</li>
+            <li>Hands-on beginner sessions for your members &mdash; all ages, all levels</li>
+            <li>Two or three performance demos during the season, free of charge</li>
+            <li>Mentoring and gear guidance for anyone who wants to start</li>
+            <li>Photos, video and social coverage credited to your venue</li>
+            <li>We handle setup, takedown and our own equipment</li>
+          </ul>
+        </div>
+        <div class="ex-col ask">
+          <h3>What we ask</h3>
+          <ul>
+            <li>A flat, dry indoor space &mdash; roughly 40&nbsp;&times;&nbsp;40 feet is plenty</li>
+            <li>A two to three hour weekly slot, November through April</li>
+            <li>Storage for a handful of bikes if one is available (not essential)</li>
+            <li>Whatever access arrangement fits your operations</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="partners">
+        <h3>Who we&rsquo;re reaching out to</h3>
+        <div class="chips">
+          <span>Community centres</span>
+          <span>Recreation complexes</span>
+          <span>School gyms</span>
+          <span>Colleges &amp; universities</span>
+          <span>Boys &amp; Girls Clubs</span>
+          <span>Youth shelters</span>
+          <span>Cultural centres</span>
+          <span>Churches &amp; halls</span>
+          <span>Property managers</span>
+          <span>Studios &amp; warehouses</span>
+        </div>
+      </div>
+
+      <div class="why">
+        <h3>Why flatland works in a community gym</h3>
+        <p>No ramps to build, no course to maintain, no noise like a skatepark. Flatland needs a bare floor and a bicycle. It is low-impact, it takes real discipline, and beginners feel progress in a single session &mdash; which is why it lands so well with youth programs.</p>
+      </div>
+
+      <p class="center-cta"><a class="btn" href="#contact">Talk to us about winter space</a></p>
+    </div>
   </section>
 
   <!-- ===== GALLERY ===== -->
-  <section id="gallery" class="block">
-    <span class="section-label">Moments</span>
-    <h2>Gallery</h2>
-    <div class="thumbs" id="galleryThumbs"></div>
+  <section id="gallery" class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Moments</p>
+        <h2>Gallery</h2>
+      </div>
+      <div class="thumbs" id="galleryThumbs"></div>
+    </div>
   </section>
 
   <!-- ===== CONTACT ===== -->
-  <section id="contact" class="block">
-    <span class="section-label">Get In Touch</span>
-    <h2>Contact</h2>
-    <div class="contact">
-      <p style="margin-top:0;color:var(--ink);font-size:1.05rem">Want to ride with us, collab on an event, or learn flatland?</p>
-      <div class="contact-links">
-        <a href="mailto:bmxforce.com@gmail.com"><span class="ico">✉️</span> bmxforce.com@gmail.com</a>
+  <section id="contact" class="sec sec-alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Get In Touch</p>
+        <h2>Contact</h2>
+        <p class="sub">Booking a demo, offering us winter space, or want to come ride? Tell us the basics and we&rsquo;ll get back to you.</p>
+      </div>
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:bmxforce.com@gmail.com?subject=ATF%20%2D%20Demo%20%2F%20Show%20request&amp;body=Organization%3A%0AContact%20name%3A%0AEvent%20date%3A%0ALocation%3A%0AType%20of%20event%3A%0AAudience%20size%3A%0AWhat%20you%20have%20in%20mind%3A">
+          <span class="ci">🎤</span>
+          <strong>Book a demo or show</strong>
+          <small>Performance, initiation or presentation</small>
+        </a>
+        <a class="contact-card" href="mailto:bmxforce.com@gmail.com?subject=ATF%20%2D%20Winter%20ride%20space&amp;body=Organization%3A%0AContact%20name%3A%0ASpace%20available%3A%0AAddress%20%2F%20neighbourhood%3A%0ADays%20%2F%20hours%20available%3A%0AAnything%20we%20should%20know%3A">
+          <span class="ci">🏟️</span>
+          <strong>Offer us winter space</strong>
+          <small>Gym, hall, studio or warehouse</small>
+        </a>
+        <a class="contact-card" href="mailto:bmxforce.com@gmail.com?subject=ATF%20%2D%20I%20want%20to%20ride">
+          <span class="ci">✉️</span>
+          <strong>Come ride with us</strong>
+          <small>bmxforce.com@gmail.com</small>
+        </a>
       </div>
     </div>
   </section>
@@ -115,53 +305,129 @@
 
 <!-- ===== FOOTER ===== -->
 <footer class="foot">
-  <div class="wrap">
-    <nav class="nav foot-nav" aria-label="Footer">
-      <a href="#about">Who We Are</a>
+  <div class="wrap foot-in">
+    <div class="foot-brand">
+      <img src="assets/atflogo.png" alt="ATF" />
+      <div>
+        <strong>Association of Toronto Flatlanders</strong>
+        <p>Flatland BMX &mdash; Toronto, Ontario</p>
+      </div>
+    </div>
+    <nav class="foot-nav" aria-label="Footer">
+      <a href="#crew">The Crew</a>
       <a href="#video">Video</a>
-      <a href="#gallery">Gallery</a>
+      <a href="#what">What We Do</a>
+      <a href="#shows">Demos &amp; Shows</a>
+      <a href="#space">Winter Space</a>
       <a href="#contact">Contact</a>
     </nav>
-    <p>&copy; 2025 Association of Toronto Flatlanders</p>
+  </div>
+  <div class="wrap foot-bottom">
+    <p>&copy; <span id="yr">2025</span> Association of Toronto Flatlanders</p>
+    <p><a href="pitch.html">Winter space proposal (PDF)</a></p>
   </div>
 </footer>
 
 <!-- ===== LIGHTBOX ===== -->
 <div class="lightbox" id="lightbox" aria-hidden="true" aria-label="Image viewer" role="dialog">
   <button class="close" id="lbClose" aria-label="Close (Esc)">Close ✕</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous image (←)">‹</button>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next image (→)">›</button>
   <figure>
     <img id="lbImg" alt="Full-size image" />
     <figcaption id="lbCap"></figcaption>
   </figure>
+  <div class="lb-counter" id="lbCounter" aria-live="polite"></div>
 </div>
 
 <script>
-/* ===== Placeholder (aucune image de secours cassée) ===== */
-const PLACEHOLDER = null;
+document.getElementById('yr').textContent = new Date().getFullYear();
 
-/* ===== RIDERS =====
-   Conserve les photos & liens existants.
-   Les riders sans photo affichent un placeholder élégant (.ph). */
+/* ===== NAV sticky + burger ===== */
+const topbar = document.getElementById('topbar');
+const burger = document.getElementById('burger');
+const menu = document.getElementById('menu');
+
+function onScroll(){ topbar.classList.toggle('scrolled', window.scrollY > 40); }
+onScroll();
+window.addEventListener('scroll', onScroll, {passive:true});
+
+burger.addEventListener('click', () => {
+  const open = menu.classList.toggle('open');
+  burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+});
+menu.addEventListener('click', (e) => {
+  if (e.target.tagName === 'A') { menu.classList.remove('open'); burger.setAttribute('aria-expanded','false'); }
+});
+
+/* ===== DEMOS & SHOWS ===== */
+const shows = [
+  {
+    icon: '🎪',
+    title: 'Performance demo',
+    dur: '20–45 min',
+    text: 'A choreographed flatland show. Two to four riders rotating, high-energy and music-driven, on any flat surface. Ideal as entertainment at a festival, a community event or a school assembly.'
+  },
+  {
+    icon: '🧑‍🏫',
+    title: 'Hands-on initiation',
+    dur: '60–120 min',
+    text: 'A demo, then everyone gets a bike. Beginner flatland basics taught in small groups: balance, rolling, first tricks. Bikes and helmets provided. This is the format that works best for youth and beginners.'
+  },
+  {
+    icon: '🏫',
+    title: 'Schools, camps & presentations',
+    dur: 'Half or full day',
+    text: 'A full-day rotation through several groups, plus a talk about the sport, its history and where it can take you. Ties into physical education, cycling safety and goal-setting. Difficulty adapted to the age group.'
+  },
+  {
+    icon: '🤝',
+    title: 'Partnerships & sponsorships',
+    dur: 'Ongoing',
+    text: 'We work with brands, shops and organizations who want visibility at rides and events, or who want to help build a real flatland scene in Toronto. Let\'s talk about what makes sense.'
+  }
+];
+
+const showsGrid = document.getElementById('showsGrid');
+showsGrid.innerHTML = shows.map(s => `
+  <article class="card show-card">
+    <div class="pad">
+      <div class="icon">${s.icon}</div>
+      <h3>${s.title}</h3>
+      <span class="dur">${s.dur}</span>
+      <p>${s.text}</p>
+      <a class="linkbtn" href="#contact">Ask about this</a>
+    </div>
+  </article>
+`).join('');
+
+/* ===== RIDERS ===== */
 const riders = [
   { name: 'Tall Paul', bio: 'Tech links, turbine spins, scene builder since day one.', linkText: 'Instagram', linkHref: '#', thumb: 'assets/riders/tallpaulbmx12.jpg', full: 'assets/riders/tallpaulbmx12.jpg' },
-  { name: 'Bert',       bio: 'Flow style, frontyard classics. Riding since 2004.',     linkText: 'Profile',   linkHref: '#' },
-  { name: 'Brandon',    bio: 'Fast combos, dialed whiplash control.',                   linkText: 'Link',      linkHref: '#', thumb: 'assets/riders/img_4031-1-924x924.jpg', full: 'assets/riders/img_4031-1-924x924.jpg' },
-  { name: 'Juan',       bio: 'Explosive switches, loves outdoor autumn sessions.',      linkText: 'Link',      linkHref: '#' },
-  { name: 'Colin',      bio: 'Original lines, quiet killer at jams.',                   linkText: 'Insta',     linkHref: '#' },
-  { name: 'Jess',       bio: 'Smooth turbines, backwheel consistency.',                 linkText: 'Link',      linkHref: '#' },
-  { name: 'Remy',       bio: 'Flatland lifer. Community first.',                        linkText: 'Link',      linkHref: '#' },
-  { name: 'Ro',         bio: 'Riding for many years Flat and Street Freestyle Style',   linkText: 'Red Label Art', linkHref: 'https://www.redlabelart.com/' }
+  { name: 'Bert',       bio: 'Flow style, frontyard classics. Riding since 2004.',     linkText: 'Profile',   linkHref: '#', thumb: 'assets/riders/bert.jpg', full: 'assets/riders/bert.jpg' },
+  { name: 'Brandon', bio: 'Fast combos, dialed whiplash control.', linkText: 'Link', linkHref: '#', thumb: 'assets/riders/img_4031-1-924x924.jpg', full: 'assets/riders/img_4031-1-924x924.jpg' },
+  { name: 'Juan', bio: 'Longtime GTA rider, classic flatland style.', thumb: 'assets/riders/juan.jpg', full: 'assets/riders/juan.jpg' },
+  { name: 'Colin', bio: 'Original lines, quiet killer at jams.', linkText: 'Insta', linkHref: '#' },
+  { name: 'Jess', bio: 'Smooth turbines, backwheel consistency.', thumb: 'assets/riders/jess.jpg', full: 'assets/riders/jess.jpg' },
+  { name: 'Remy', bio: 'Flatland lifer. Community first.', thumb: 'assets/riders/remy.jpg', full: 'assets/riders/remy.jpg' },
+  { name: 'aGui',      bio: 'Long time rider from Shanghai, China. Freshly arrived in Toronto.', thumb: 'assets/riders/gui.jpg', full: 'assets/riders/gui.jpg' },
+  { name: 'aGui Jr',   bio: 'Second generation. Rides demos and events.', thumb: 'assets/riders/agui-junior.jpg', full: 'assets/riders/agui-junior.jpg' },
+  { name: 'Max Dako',  bio: 'Long time Toronto rider, back at it recently.' },
+  { name: 'Khalid Abdul', bio: 'Toronto flatland crew.' },
+  { name: 'Ro',         bio: 'Riding for many years, flat and street freestyle style.', linkText: 'Red Label Art', linkHref: 'https://www.redlabelart.com/' }
 ];
+
+function initials(n){ return n.split(/\s+/).map(w => w[0]).join('').slice(0,2).toUpperCase(); }
 
 const ridersGrid = document.getElementById('ridersGrid');
 ridersGrid.innerHTML = riders.map(r => `
-  <article class="card rider">
+  <article class="rider">
     ${r.thumb
       ? `<a href="${r.full || r.thumb}" class="rider-link" data-full="${r.full || r.thumb}" data-caption="${r.name}">
-           <img src="${r.thumb}" alt="${r.name}" class="rider-img" loading="lazy" />
+           <img src="${r.thumb}" alt="${r.name} riding flatland BMX in Toronto" loading="lazy" />
          </a>`
-      : `<div class="ph">${r.name}</div>`}
-    <div class="pad">
+      : `<div class="rider-ph"><span>${initials(r.name)}</span></div>`}
+    <div class="rider-info">
       <h3>${r.name}</h3>
       <p>${r.bio}</p>
       ${r.linkHref && r.linkHref !== '#' ? `<a class="linkbtn" href="${r.linkHref}" target="_blank" rel="noopener">${r.linkText}</a>` : ''}
@@ -169,17 +435,46 @@ ridersGrid.innerHTML = riders.map(r => `
   </article>
 `).join('');
 
-/* ===== LIGHTBOX ===== */
+/* ===== LIGHTBOX + navigation ===== */
 const lb = document.getElementById('lightbox');
 const lbImg = document.getElementById('lbImg');
 const lbCap = document.getElementById('lbCap');
 const lbClose = document.getElementById('lbClose');
+const lbPrev = document.getElementById('lbPrev');
+const lbNext = document.getElementById('lbNext');
+const lbCounter = document.getElementById('lbCounter');
 
-function openLB(src, caption) {
-  lbImg.src = src || '';
-  lbCap.textContent = caption || '';
+/* Source de la galerie courante : soit les riders, soit la galerie */
+let lbItems = [];
+let lbIndex = 0;
+
+function showLB(i){
+  if (!lbItems.length) return;
+  lbIndex = (i + lbItems.length) % lbItems.length;
+  const it = lbItems[lbIndex];
+  lbImg.src = it.full;
+  lbCap.textContent = it.caption || '';
+  if (lbCounter) lbCounter.textContent = (lbIndex + 1) + ' / ' + lbItems.length;
+  // masquer les fleches s'il n'y a qu'une image
+  const multi = lbItems.length > 1;
+  lbPrev.style.display = multi ? '' : 'none';
+  lbNext.style.display = multi ? '' : 'none';
+  if (lbCounter) lbCounter.style.display = multi ? '' : 'none';
+  // precharger les voisines
+  if (multi){
+    [1,-1].forEach(d => {
+      const n = lbItems[(lbIndex + d + lbItems.length) % lbItems.length];
+      if (n) { const p = new Image(); p.src = n.full; }
+    });
+  }
+}
+
+function openLB(items, index){
+  lbItems = items || [];
+  if (!lbItems.length) return;
   lb.setAttribute('aria-hidden','false');
   document.body.style.overflow='hidden';
+  showLB(index || 0);
   lbClose && lbClose.focus && lbClose.focus();
 }
 function closeLB() {
@@ -187,47 +482,152 @@ function closeLB() {
   lbImg.removeAttribute('src');
   document.body.style.overflow='';
 }
+function lbStep(d){ showLB(lbIndex + d); }
 
+/* Les riders ouvrables (ceux qui ont une photo) */
 ridersGrid.addEventListener('click', (e) => {
   const link = e.target.closest('a.rider-link');
   if (!link) return;
   e.preventDefault();
-  openLB(link.dataset.full || link.getAttribute('href'), link.dataset.caption || '');
+  const items = riders
+    .filter(r => r.full || r.thumb)
+    .map(r => ({ full: r.full || r.thumb, caption: r.name }));
+  const idx = items.findIndex(it => it.full === (link.dataset.full || link.getAttribute('href')));
+  openLB(items, idx < 0 ? 0 : idx);
 });
 
-/* ===== GALLERY =====
-   À remplir avec les vraies photos dans assets/gallery/.
-   Tant que vide : affiche des placeholders. */
-const gallery = Array.from({ length: 8 }).map((_, i) => ({
-  thumb: '',  // e.g. 'assets/gallery/thumbs/atf_01_480.jpg'
-  full:  '',  // e.g. 'assets/gallery/full/atf_01.jpg'
-  alt: `ATF gallery ${i+1}`,
-  caption: `ATF — placeholder ${i+1}`
-}));
+/* ===== GALLERY ===== */
+const gallery = [
+  {
+    thumb: 'assets/gallery/thumbs/atf_fenton_01_600.jpg',
+    full: 'assets/gallery/full/atf_fenton_01.jpg',
+    alt: 'Brandon riding flatland at Dunbat, also known as Alexandra Park, Toronto',
+    caption: 'Brandon at Dunbat (Alexandra Park)'
+  },
+  {
+    thumb: 'assets/gallery/thumbs/atf_demo_downtown_600.jpg',
+    full: 'assets/gallery/full/atf_demo_downtown.jpg',
+    alt: 'ATF demo on a closed street in Mississauga, rider in a yellow jersey',
+    caption: 'Demo day, Mississauga'
+  },
+  {
+    thumb: 'assets/gallery/thumbs/atf_lakeside_600.jpg',
+    full: 'assets/gallery/full/atf_lakeside.jpg',
+    alt: 'Flatland BMX session by the lake under a large tree',
+    caption: 'Lakefront session'
+  },
+  {
+    thumb: 'assets/gallery/thumbs/atf_sunset_dusk_600.jpg',
+    full: 'assets/gallery/full/atf_sunset_dusk.jpg',
+    alt: 'Two flatland riders at an outdoor rink at dusk, Toronto rooftops behind',
+    caption: 'Dusk session'
+  },
+  {
+    thumb: 'assets/gallery/thumbs/atf_indoor_jr_600.jpg',
+    full: 'assets/gallery/full/atf_indoor_jr.jpg',
+    alt: 'aGui Jr performing at a flatland demo in Shanghai',
+    caption: 'aGui Jr, Shanghai'
+  },
+  {
+    thumb: 'assets/gallery/thumbs/atf_bert_indoor_600.jpg',
+    full: 'assets/gallery/full/atf_bert_indoor.jpg',
+    alt: 'Bert riding flatland at an indoor demo in front of a crowd',
+    caption: 'Bert, indoor demo'
+  },
+  {
+    thumb: 'assets/gallery/thumbs/atf_agui_bridge_600.jpg',
+    full: 'assets/gallery/full/atf_agui_bridge.jpg',
+    alt: 'aGui riding flatland in silhouette against the Shanghai bridge at sunset',
+    caption: 'aGui, Shanghai'
+  },
+  {
+    thumb: 'assets/gallery/thumbs/atf_agui_demo_night_600.jpg',
+    full: 'assets/gallery/full/atf_agui_demo_night.jpg',
+    alt: 'aGui performing a flatland demo at night under stage lighting',
+    caption: 'aGui, night demo'
+  },
+  {
+    thumb: 'assets/gallery/thumbs/atf_brandon_waterbottle_600.jpg',
+    full: 'assets/gallery/full/atf_brandon_waterbottle.jpg',
+    alt: 'Brandon balancing on the back wheel of his BMX outdoors',
+    caption: 'Brandon, backyard session'
+  },
+  {
+    thumb: 'assets/gallery/thumbs/atf_remy_japan_600.jpg',
+    full: 'assets/gallery/full/atf_remy_japan.jpg',
+    alt: 'Remy riding flatland on a beach with mountains across the bay, Japan',
+    caption: 'Remy, Japan (Mie Prefecture)'
+  },
+  {
+    thumb: 'assets/gallery/thumbs/atf_remy_toronto_600.jpg',
+    full: 'assets/gallery/full/atf_remy_toronto.jpg',
+    alt: 'Remy riding flatland by the Toronto waterfront with the skyline behind',
+    caption: 'Remy, Toronto waterfront'
+  },
+  {
+    thumb: 'assets/gallery/thumbs/atf_crew_dunbat_600.jpg',
+    full: 'assets/gallery/full/atf_crew_dunbat.jpg',
+    alt: 'The ATF flatland crew together at Dunbat skatepark in Toronto',
+    caption: 'The crew at Dunbat'
+  },
+  {
+    thumb: 'assets/gallery/thumbs/atf_agui_jr_demo_600.jpg',
+    full: 'assets/gallery/full/atf_agui_jr_demo.jpg',
+    alt: 'aGui Jr riding flatland on a photo studio set with photographers around',
+    caption: 'aGui Jr, studio session'
+  },
+];
 
 const thumbs = document.getElementById('galleryThumbs');
-thumbs.innerHTML = gallery.map((p, i) => `
-  <figure class="thumb">
-    ${p.full
-      ? `<a class="glink" href="${p.full}" data-full="${p.full}" data-caption="${p.caption}">
-           ${p.thumb ? `<img src="${p.thumb}" alt="${p.alt}" loading="lazy" />` : `<img src="${p.full}" alt="${p.alt}" loading="lazy" />`}
-         </a>`
-      : `<div class="ph">Gallery ${i+1}</div>`}
-    <figcaption>${p.caption}</figcaption>
-  </figure>
-`).join('');
+if (gallery.length) {
+  thumbs.innerHTML = gallery.map(p => `
+    <figure class="thumb">
+      <a class="glink" href="${p.full}" data-full="${p.full}" data-caption="${p.caption}">
+        <img src="${p.thumb || p.full}" alt="${p.alt || p.caption}" loading="lazy" />
+      </a>
+      ${p.caption ? `<figcaption>${p.caption}</figcaption>` : ''}
+    </figure>
+  `).join('');
+} else {
+  thumbs.innerHTML = `
+    <div class="gallery-empty">
+      <p><strong>Photos coming soon.</strong></p>
+      <p>We&rsquo;re pulling together shots from recent sessions and jams.</p>
+    </div>`;
+}
 
 thumbs.addEventListener('click', (e) => {
   const link = e.target.closest('a.glink');
   if (!link) return;
   e.preventDefault();
-  openLB(link.dataset.full || link.getAttribute('href'), link.dataset.caption || '');
+  const items = gallery.map(p => ({ full: p.full, caption: p.caption }));
+  const idx = gallery.findIndex(p => p.full === (link.dataset.full || link.getAttribute('href')));
+  openLB(items, idx < 0 ? 0 : idx);
 });
 
-/* ===== Close lightbox ===== */
+/* ===== Controles lightbox ===== */
 lbClose && lbClose.addEventListener('click', closeLB);
+lbPrev && lbPrev.addEventListener('click', (e) => { e.stopPropagation(); lbStep(-1); });
+lbNext && lbNext.addEventListener('click', (e) => { e.stopPropagation(); lbStep(1); });
 lb.addEventListener('click', (e)=>{ if(e.target === lb) closeLB(); });
-document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeLB(); });
+
+document.addEventListener('keydown', (e)=>{
+  if (lb.getAttribute('aria-hidden') === 'false') {
+    if (e.key === 'Escape') closeLB();
+    if (e.key === 'ArrowLeft')  lbStep(-1);
+    if (e.key === 'ArrowRight') lbStep(1);
+  }
+});
+
+/* ===== Swipe tactile (mobile) ===== */
+let touchX = null;
+lb.addEventListener('touchstart', (e) => { touchX = e.changedTouches[0].clientX; }, {passive:true});
+lb.addEventListener('touchend', (e) => {
+  if (touchX === null) return;
+  const dx = e.changedTouches[0].clientX - touchX;
+  if (Math.abs(dx) > 45) lbStep(dx < 0 ? 1 : -1);
+  touchX = null;
+}, {passive:true});
 </script>
 </body>
 </html>
