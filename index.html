@@ -366,7 +366,14 @@ const shows = [
     icon: '🎪',
     title: 'Performance demo',
     dur: '20–45 min',
-    text: 'A choreographed flatland show. Two to four riders rotating, high-energy and music-driven, on any flat surface. Ideal as entertainment at a festival, a community event or a school assembly.'
+    text: 'A choreographed flatland show. Two to four riders rotating, high-energy and music-driven, on any flat surface. Ideal as entertainment at a festival, a community event or a school assembly.',
+    photos: [
+      { src: 'assets/demo/demo_street_crowd.jpg', alt: 'Flatland rider mid-trick in front of a street crowd behind barriers' },
+      { src: 'assets/demo/demo_ring.jpg',         alt: 'Two flatland riders performing inside a boxing ring on a stage' },
+      { src: 'assets/demo/demo_porsche.jpg',      alt: 'Flatland rider performing in front of a crowd at a showroom event' },
+      { src: 'assets/demo/demo_night_show.jpg',   alt: 'Flatland demo at night outdoors in front of a large crowd' },
+      { src: 'assets/demo/demo_night_jump.jpg',   alt: 'Flatland rider jumping over volunteers lying on a stage at night' }
+    ]
   },
   {
     icon: '🧑‍🏫',
@@ -396,10 +403,30 @@ showsGrid.innerHTML = shows.map(s => `
       <h3>${s.title}</h3>
       <span class="dur">${s.dur}</span>
       <p>${s.text}</p>
+      ${s.photos ? `
+      <div class="demo-strip" aria-label="${s.title} photos">
+        ${s.photos.map((p, i) => `
+          <button class="demo-shot" type="button" data-full="${p.src}" data-alt="${p.alt}" aria-label="View photo">
+            <img src="${p.src.replace(/\.jpg$/, '_520.jpg')}" alt="${p.alt}" loading="lazy" />
+          </button>
+        `).join('')}
+      </div>` : ''}
       <a class="linkbtn" href="#contact">Ask about this</a>
     </div>
   </article>
 `).join('');
+
+/* Photos dans la carte Performance demo -> lightbox */
+showsGrid.addEventListener('click', (e) => {
+  const btn = e.target.closest('.demo-shot');
+  if (!btn) return;
+  e.preventDefault();
+  const card = btn.closest('.show-card');
+  const shots = card ? [...card.querySelectorAll('.demo-shot')] : [btn];
+  const items = shots.map(b => ({ full: b.dataset.full, caption: '' }));
+  const idx = shots.indexOf(btn);
+  openLB(items, idx < 0 ? 0 : idx);
+});
 
 /* ===== RIDERS ===== */
 const riders = [
