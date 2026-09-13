@@ -60,7 +60,7 @@ Three activities:
 
 Four offers:
 
-- **Performance demo** (20 to 45 min): A choreographed flatland show. Two to four riders rotating, high-energy and music-driven, on any flat surface. Ideal at a festival, a community event or a school assembly.
+- **Performance demo** (20 to 45 min): A choreographed flatland show. Two to four riders rotating, high-energy and music-driven, on any flat surface. Ideal at a festival, a community event, a corporate event or a school assembly.
 - **Hands-on initiation** (60 to 120 min): A demo, then everyone gets a bike. Beginner flatland basics taught in small groups: balance, rolling, first tricks. Bikes and helmets provided. Works best for youth and beginners.
 - **Schools, camps and presentations** (half or full day): A full-day rotation through several groups, plus a talk about the sport, its history and where it can take you. Ties into physical education, cycling safety and goal-setting. Difficulty adapted to the age group.
 - **Partnerships and sponsorships** (ongoing): Work with brands, shops and organizations who want visibility at rides and events, or who want to help build a real flatland scene in Toronto.
